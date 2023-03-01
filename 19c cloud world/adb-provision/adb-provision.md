@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you will provision a new ATP instance.
+This lab provides a step-by-step guide to help you get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you will learn how to provision a new ATP instance.
 
- **Note:** While this lab uses ATP, the steps are the same for creating an ADW database.
+**Note:** While this lab uses ATP, the steps are the same for creating an ADW database.
 
 Estimated Time: 5 minutes
 
@@ -16,16 +16,16 @@ Watch the video below for a quick walk through of the lab.
 
 In this lab, you will:
 
--   Learn how to provision a new Oracle Autonomous Database
+- Learn how to provision a new Oracle Autonomous Database
 
 ### Prerequisites
 
-- This lab requires completion of the Get Started section in the Contents menu on the left.
+- Completion of the Get Started section in the Contents menu on the left is required for this lab.
 
 ## Task 1: Choose ADW or ATP from the services menu
 
 1. Log in to the Oracle Cloud.
-2. Once you log in, the cloud services dashboard shows all the services available to you. Click the navigation menu in the upper_left to show top level navigation choices.
+2. Once logged in, the cloud services dashboard displays all the available services. Click the navigation menu in the upper left to show top-level navigation choices.
 
     > **Note:** You can also directly access your Autonomous Data Warehouse or Autonomous Transaction Processing service in the __Quick Actions__ section of the dashboard.
 
@@ -44,10 +44,10 @@ In this lab, you will:
 
     ![Autonomous Databases console.](./images/adb-no-database.png " ")
 
-
-6. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **region** in the top, right hand corner of the page.
+6. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **region** in the top right-hand corner of the page.
 
     ![Select region on the far upper-right corner of the page.](./images/adb-select-region.png " ")
+
 
 
 ## Task 2: Create an Oracle Autonomous Database instance
@@ -140,7 +140,7 @@ In this lab, you will:
     ![Show Autonomous Database](images/adb-available-freetier.png)
 
 
-Please *proceed to the next lab*.
+You may now *proceed to the next lab*.
 
 ## Task 3: Create the Lab User
 1. After your Autonomous Database has finished provisioning, click on the **Database Actions** button located at the top of the screen. 
