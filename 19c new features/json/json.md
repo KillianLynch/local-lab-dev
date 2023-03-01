@@ -24,9 +24,44 @@ This lab assumes you have completed the following labs:
 * Lab: Environment Setup
 * Lab: Sample Schema Setup
 
-### Lab User Schema
+## Task 1: Exploring JSON
 
-For this lab we will use the *Order Entry (OE)* sample schema.
+1. If you are not still signed into the nf19c user, sign back in. Otherwise you can go to step 2.
+
+    ````
+    <copy>
+    sql nf19c/WElcome123##@//nf19c.pub.db19cnf.oraclevcn.com:1521/pdb1.pub.db19cnf.oraclevcn.com
+    </copy>
+    ````
+2. Lets take a look and see how many movies we have in our movie table.
+
+    ````
+    <copy>
+    select count(*) from movie;
+    </copy>
+    ````
+3. Now lets take a look a look at the constraints on our Movies table.
+
+    ````
+    <copy>
+    SELECT CONSTRAINT_NAME, TABLE_NAME, SEARCH_CONDITION
+    FROM user_constraints
+    WHERE table_name = 'MOVIE'
+    AND constraint_type = 'C';
+    </copy>
+    ````
+here we can see that some contrains are is JSON 
+lets look 
+select * from movie m where m.crew.job='screenwriter';
+
+
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+
+
 
 ## Task 1: Environment Preparation
 
