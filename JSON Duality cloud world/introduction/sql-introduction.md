@@ -8,8 +8,6 @@ This workshop focuses on working with JSON Duality Views in Oracle Database 23c.
 
 JSON Relational Duality is a landmark capability in Oracle Database 23c providing game-changing flexibility and simplicity for Oracle Database developers. This breakthrough innovation overcomes the historical challenges developers have faced when building applications, using relational or document models.
 
-“JSON Relational Duality in Oracle Database 23c brings substantial simplicity and flexibility to modern app dev,” said Carl Olofson, research Vice President, Data Management Software, IDC. “It addresses the age-old object - relational mismatch problem, offering an option for developers to pick the best storage and access formats needed for each use case without having to worry about data structure, data mapping, data consistency, or performance tuning. No other specialized document databases offer such a revolutionary solution.”
-
 JSON Relational Duality helps to converge the benefits of both document and relational worlds. Developers now get the flexibility and data access benefits of the JSON document model, plus the storage efficiency and power of the relational model. The new feature enabling this convergence is JSON Relational Duality View (Will be referred below as Duality View).
 
 Key benefits of JSON Relational Duality:
@@ -19,7 +17,7 @@ Key benefits of JSON Relational Duality:
 - Duality Views eliminate the inherent problem of data duplication and data inconsistency in document databases. Duality Views are fully ACID (atomicity, consistency, isolation, durability) transactions across multiple documents and tables. It eliminates data duplication across documents data, whereas consistency is maintained automatically. 
 - Build apps that support high concurrency access and updates. Traditional locks don’t work well for modern apps. A new lock-free concurrency control provided with Duality View supports high concurrency updates. The new-lock free concurrency control also works efficiently for interactive applications since the data is not locked during human thinking time.
 
-Estimated Time: 30 minutes
+Estimated Time: 75 minutes
 
 ### Objectives
 
@@ -40,6 +38,6 @@ In order to do this workshop you need
 * [Blog: Key benefits of JSON Relational Duality] (https://blogs.oracle.com/database/post/key-benefits-of-json-relational-duality-experience-it-today-using-oracle-database-23c-free-developer-release)
 
 ## Acknowledgements
-* **Author** - Kaylien Phan, William Masdon
-* **Contributors** - David Start, Ranjan Priyadarshi
-* **Last Updated By/Date** - Kaylien Phan, Database Product Management, April 2023
+* **Author** - Killian Lynch
+* **Contributors** - Dominic Giles
+* **Last Updated By/Date** - Killian Lynch, Database Product Management, May 2023
