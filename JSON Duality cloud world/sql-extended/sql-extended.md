@@ -2,27 +2,27 @@
 
 ## Introduction
 
-This lab walks you through the steps to work with SQL data and JSON documents at the same time in the Oracle 23c database, looking at the true duality of the views.
+This lab demonstrates the extreme flexibility of JSON Duality Views in the Oracle 23c database. You will learn how to work with SQL data and JSON documents simultaneously, leveraging the true duality of the views. With JSON Duality Views, you have the flexibility and data access benefits of the JSON document model combined with the storage efficiency and power of the relational model.
 
-Regardless of which one you choose to work with, the underlying result in the database is the same, with SQL access and JSON document access to all data. Developers now get the flexibility and data access benefits of the JSON document model as well as the storage efficiency and power of the relational model.
-
-Estimated Time: 10 minutes
+Estimated Time: 20 minutes
 
 ### Objectives
 
 In this lab, you will:
-* Insert and update on the Duality Views and SQL base tables
+
+* Perform insert and update operations on Duality Views and SQL base tables
 
 ### Prerequisites
 
 This lab assumes you have:
+
 * Oracle Database 23c Free Developer Release
 * All previous labs successfully completed
 * SQL Developer Web 23.1 or a compatible tool for running SQL statements
 
 
 ## Task 1: Inserting into SQL tables and duality views
-1. We mentioned how the underlying base tables get populated when you add an entry into the JSON duality view. Here we will check the base table to ensure the record does not exist, insert into the duality view, and then check the base table. Copy the code and click **Run Script**.
+1. To demonstrate how the underlying base tables are populated when adding an entry into the JSON Duality View, we will first check the base table to ensure the record does not exist. Then, we will insert a record into the duality view and check the base table again. Run the following code:
 
     ```
     <copy>
@@ -46,7 +46,7 @@ This lab assumes you have:
     ```
     ![Image alt text](images/little.png " ")
 
-2. Now we will look at the opposite. Let's look at the duality view, insert into the base table and then check the duality view for the record. Copy the code and click **Run Script**.
+2. In this step, we will perform the opposite operation. First, we will look at the duality view, then insert a record into the base table, and finally check the duality view for the updated record. Run the following code:
     ```
     <copy>
     SELECT json_serialize(data PRETTY)
@@ -64,7 +64,7 @@ This lab assumes you have:
 
 ## Task 2: Update and replace a document by ID
 
-1. In the last lab, you were able to insert into a SQL table and a document into the duality view and see the changes reflected accordingly. Here we are going to go one step further. Lets update the Kids genre table via SQL and we will see this reflected throughout all all documents that contain the Kids genre. Copy the code and click **Run Statement**.
+1. In the previous lab, you learned how to insert records into a SQL table and a document into the duality view. Now, we will go one step further and update the Kids genre table using SQL. This change will be reflected in all documents that contain the Kids genre. Run the following code:
 
     ```
     <copy>
@@ -72,11 +72,11 @@ This lab assumes you have:
     FROM GENRES_DV WHERE json_value(data, '$.genre_id') = 25;
     </copy>
     ```
-    We see that we have the kids genre but there is no description. Lets update this via SQL
+    We can see that the Kids genre exists but has no description. Let's update this via SQL.
 
     ![Image alt text](images/no_description.png " ")
 
-2. Copy the code and click **Run Statement** to update the description of the kids genre.
+2. Run the following code to update the description of the Kids genre:
  
     ```
     <copy>
@@ -87,18 +87,18 @@ This lab assumes you have:
     ```
     ![Image alt text](images/kids_description.png " ")
 
-3. Now lets check the Genres table again. Copy the code and click **Run Statement**
+3. Now, let's check the Genres table again to see the updated description. Run the following code:
     ```
     <copy>
     SELECT json_serialize(data PRETTY)
     FROM GENRES_DV WHERE json_value(data, '$.genre_id') = 25;
     </copy>
     ```
-    We see now that the Kids genre has a new description.
+    We can see that the Kids genre now has a new description.
 
     ![Image alt text](images/new_kids_genre.png " ")
 
-4. Let's go one step further and check the all movies that contain the kids genre to see the new updated description. Copy the code and click **Run Statement** 
+4. Next, let's examine all movies that contain the Kids genre to see the updated description. Run the following code:
     ```
     <copy>
     SELECT json_serialize(data PRETTY)
@@ -107,7 +107,7 @@ This lab assumes you have:
     ```
     ![Image alt text](images/updated_kids_description.png " ")
 
-5. Finally, since we made an update via a SQL Insert statement, Lets insert via the Duality View. Lets add a description to the family genre. First check the current description. Copy the code and click **Run Statement**
+5. Finally, since we made an update via an SQL INSERT statement, let's insert a record via the Duality View. We will add a description to the Family genre. First, check the current description. Run the following code:
 
     ```
     <copy>
@@ -116,7 +116,7 @@ This lab assumes you have:
     ```
     ![Image alt text](images/fam_description.png " ")
 
-6. Now update the genres duality view. Copy the code and click **Run Statement**
+6. Update the Genres Duality View and add the description by running the following code:
     ```
     <copy>
     UPDATE GENRES_DV g set g.data = json_transform(data, SET '$.genre_description' = 'Family: Heartwarming and inclusive entertainment for all ages. Dive into a world of love, laughter, and togetherness as you embark on delightful adventures and celebrate the power of family bonds.') WHERE g.data.genre_name = 'Family';
@@ -124,7 +124,7 @@ This lab assumes you have:
     ```
     ![Image alt text](images/family_update.png " ")
 
-7. Lastly, lets take a look at out new Family secription in some of the duality views that contain the Family genre. Copy the code and click **Run Statement**
+7. Lastly, let's check the Duality Views containing the Family genre to see the updated description. Run the following code:
     ```
     <copy>
     SELECT json_serialize(data PRETTY)
@@ -135,7 +135,7 @@ This lab assumes you have:
 
 
 
-8. Lets take a second to recap what we just did. We showed that with JSON Relational Duality Views can can work with data in either JSON Document format **OR** SQL Relational format and the changes are reflected through views to the corresponding documents and tables. This is game changing. For example, rather than having to go through every document that has the Family or Kids genre to make the change to their descriptions, we update the the view and it is reflected in the underlying table or we update the table and all documents associated are updated.
+8. In summary, this lab demonstrated the power of JSON Relational Duality Views, allowing you to work with data in either JSON Document format or SQL Relational format. Changes made through views are reflected in the corresponding documents and tables. This flexibility enables efficient and convenient create, read, update or delete across multiple documents and tables with ease.
 
 
 ## Learn More

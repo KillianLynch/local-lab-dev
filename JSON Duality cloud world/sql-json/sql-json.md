@@ -2,19 +2,21 @@
 
 ## Introduction
 
-This lab walks you through the steps to work with JSON documents in the Oracle 23c database. We'll show you how to populate the tables and subsequent duality views, as well as filter, replace, fetch, and update JSON documents by predicates.
+In this lab, you will explore the power of duality views, which allow you to seamlessly work with both SQL and JSON data in Oracle Database. You will learn how to create duality views, populate them with data using SQL or JSON, and perform operations on the integrated data. Get ready to harness the flexibility and convenience of JSON Relational Duality Views!
 
-Estimated Time: 10 minutes
+Estimated Time: 20 minutes
 
 ### Objectives
 
 In this lab, you will:
+
 * Create and populate the duality views  
 * Work with JSON documents
 
 ### Prerequisites
 
 This lab assumes you have:
+
 * Oracle Database 23c Free Developer Release
 * All previous labs successfully completed
 * SQL Developer Web 23.1 or a compatible tool for running SQL statements
@@ -23,7 +25,7 @@ This lab assumes you have:
 ## Task 1: Create the duality views
 
 
-1. Now we will create the GENRE\_DV duality view. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click **Run Script**.
+1. Create the `GENRES_DV` duality view. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click the **Run** button.
 
     ```
     <copy>
@@ -38,7 +40,7 @@ This lab assumes you have:
     ```
 	![Image alt text](images/genre_dv.png " ")
 
-2. The next view we will create the MOVIE_DETAILS\_DV duality view. Since this is for movie details, want them creating new movies as they become available  so we set those to @insert, @update, @delete. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click **Run Script**.
+2. The next view we will create the `MOVIE_DETAILS_DV` duality view. Since this is for movie details, want them creating new movies as they become available  so we set those to @insert, @update, @delete. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click the **Run** button.
 
 	```
 	<copy>
@@ -68,7 +70,7 @@ This lab assumes you have:
 
 
 ## Task 2: Adding to our movie schema
-1. We are now going to inset a new genre into the GENRES\_DV. The current genres table doesn't store any information on kid friendly movies. Lets add that new genre now. Copy the sql below and click **Run Script**
+1. Insert a new genre into the `GENRES_DV` table to include kid-friendly movies. Use the following SQL script: Copy the sql below and click the **Run** button.
 
 	```
 	<copy>
@@ -77,7 +79,7 @@ This lab assumes you have:
     ```
     ![Image alt text](images/kids.png " ")
 
-2. Additionally we are inserting a collection of documents into MOVIES\_DV. This automatically populates the movies\_details and the movies to genre mappings table. If you remember the movies duality view joins movie_details and movies to genre mappings. It also allows inserts into both tables. Copy the sql below and click **Run Script**
+2. Insert a collection of documents into `MOVIES_DV`. This automatically populates the `MOVIE_DETAILS` and the `MOVIE_GENERE_MAPPING` table. If you remember the movies duality view joins movie_details and movies to genre mappings. It also allows inserts into both tables. Copy the sql below and click **Run Script**
 
     ```
     <copy>
@@ -110,11 +112,9 @@ This lab assumes you have:
 	![Image alt text](images/surfs.png " ")
 
 
-3. Populating a duality view automatically updates data shown in related duality views, by updating their underlying tables.
+3. Populating a duality view automatically updates the data shown in related duality views by updating their underlying tables. For example, inserting documents into the `MOVIES_DV` duality view updates both the `MOVIE_DETAILS` table and the movies to genre mappings table.
 
-    For example, in the previous step documents were inserted into the movies\_dv duality view. This duality view joins the movie_details table with the movies\_genre\_mapping table, so on insert into this duality view both the movie\_details table as well as the movies\_genre\_mapping are populated. 
-
-    If you now list the contents of the movies\_dv and the genres\_dv duality view, which is based on the genres table, it has the new genre of "Kids" as well. Copy the sql below and click **Run Script**
+To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_DV` duality views. These views are based on the `MOVIES_DETAILS` and genres tables, respectively. Use the following SQL script:
 
     ```
     <copy>
@@ -228,7 +228,7 @@ This lab assumes you have:
     ```
     ![Image alt text](images/pan_kids.png " ")
 
-
+You may now proceed to the next lab.
 
 ## Learn More
 
