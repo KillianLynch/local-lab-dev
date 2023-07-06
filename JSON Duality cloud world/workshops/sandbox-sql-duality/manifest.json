@@ -1,0 +1,52 @@
+{
+    "workshoptitle": "Work with JSON Relational Duality Views in Oracle Database 23c",
+      "help": "livelabs-help-db_us@oracle.com",
+      "tutorials": [
+        {
+            "title": "Introduction",
+            "description": "This is an introduction to Oracle Database 23c.",
+            "type": "livelabs",
+            "filename": "../../introduction/sql-introduction.md"
+        },
+        {
+            "title": "Get Started with NoVNC",
+            "description": "Verify Setup of compute instance",
+            "filename": "https://oracle-livelabs.github.io/common/labs/verify-compute/verify-compute-ssh-and-novnc.md"
+        },
+        {
+            "title": "Lab 1: Create the schema and user",
+            "description": "Creating the schema",
+            "type": "livelabs",
+            "filename": "../../create-schema/create-schema.md"
+        },
+        {
+            "title": "Lab 2: Understand the data",
+            "description": "Understanding the environment, schema, and data",
+            "type": "livelabs",
+            "filename": "../../sql-schema/sql-schema.md"
+        },
+        {
+            "title": "Lab 3: JSON Relational Duality Views",
+            "description": "Working with JSON and the Duality Views",
+            "type": "livelabs",
+            "filename": "../../sql-json/sql-json.md"
+        },
+        {
+            "title": "Lab 4: The Extreme Flexibility of JSON Duality Views",
+            "description": "Working with SQL and the Duality Views",
+            "type": "livelabs",
+            "filename": "../../sql-extended/sql-extended.md"
+        },
+        {
+            "title": "Lab 5: Duality Views with REST",
+            "description": "Working with SQL and the Duality Views",
+            "type": "livelabs",
+            "filename": "../../rest-duality/rest-duality.md"
+        },
+        {
+          "title": "Need Help?",
+          "description": "Template to link to Need Help lab at the end of workshop. Change 'CHANGE-ME' in link below to need-help-livelabs.md or need-help-freetier.md",
+          "filename":"https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}

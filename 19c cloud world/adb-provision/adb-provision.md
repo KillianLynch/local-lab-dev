@@ -52,12 +52,12 @@ In this lab, you will:
 
 ## Task 2: Create an Oracle Autonomous Database instance
 
-1. Click **Create Autonomous Database** to start the instance creation process.
+1. Start the instance creation process by clicking on the "Create Autonomous Database" button.
 
     ![Click Create Autonomous Database.](./images/adb-start-create.png)
 
 
-2.  Clicking Create Autonomous Database brings up the configuration screen.
+2.  Clicking on the "Create Autonomous Database" button will bring up the configuration screen.
 
 
 3. Specify basic information for the autonomous database:
@@ -140,7 +140,7 @@ In this lab, you will:
     ![Show Autonomous Database](images/adb-available-freetier.png)
 
 
-You may now *proceed to the next lab*.
+You may  *proceed to the next lab*.
 
 ## Task 3: Create the Lab User
 1. After your Autonomous Database has finished provisioning, click on the **Database Actions** button located at the top of the screen. 
@@ -202,8 +202,6 @@ You may now *proceed to the next lab*.
 
 8. Once the new tab opens, we can now log in as our NF19C user.
 
-You may now **proceed to the next lab**.
-
 ## Task 4: Install Sample Data
 
 To make this workshop as realistic as possible, let us introduce the business scenario you will use during this workshop - **Oracle MovieStream**.
@@ -220,13 +218,68 @@ Oracle MovieStream is a fictitious online movie streaming company. Customers log
 
 	![select cloud storage ](./images/cloud-locations.gif)
 
-3. Select **Add Cloud Store Location**
+3. Select **Add Cloud Store Location** and fill in the following:
+    * Name: MoviStreamLanding
+    * **Public Bucket**
+    * Bucket URI
 
+    	```
+	<copy>
+		https://objectstorage.us-ashburn-1.oraclecloud.com/n/c4u04/b/moviestream_gold/o
+	</copy>
+	```
+
+    ![Adding the cloud Bucket URI ](./images/cloud-bucket.png)
+
+3. Using the navigation bar on the left select **Data Load** and **Load Cloud Store**
+
+	![load cloud data ](./images/load-cloud-data.png)
+
+4. Drag and drop the **customer_contact, custsales, genre,** and **movie** folders into the data loading area. **Select yes** when prompted if you would like to load object in the folder to the table or SODA Collection. Once all the folders have been moved to the loading area and **press start and run** .
+
+
+	![Drag and drop the folders into the data loading tool ](./images/drag-and-drop-data.gif)
+
+5. Click the launchpad in the top left corner to go back to the database actions home screen.
+
+	![Click the word Oracle in the top left](./images/launchpad.png)
+
+6. Select the SQL tile. 
+
+	![Select the SQL tile ](./images/sql.png)
+
+7. run the following SQL to verity the data was loaded into the NF19C user. 
+
+    ```
+	    <copy>
+		SELECT  (
+        SELECT COUNT(*)
+        FROM   customer_contact
+        ) AS customer_contact,
+        (
+        SELECT COUNT(*)
+        FROM   custsales
+        ) AS custsales,
+        (
+        SELECT COUNT(*)
+        FROM   genre
+        ) AS genre,
+        (
+        SELECT COUNT(*)
+        FROM   movie
+        ) AS movie
+        FROM    dual 
+	    </copy>
+	```
+    
+    ![Drag and drop the folders into the data loading tool ](./images/verify-data.png)
+
+You may now **proceed to the next lab**.
 
 
 ## Learn more
 
-Go to [the documentation](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/autonomous-workflow.html#GUID-5780368D-6D40-475C-8DEB-DBA14BA675C3) on the typical workflow for using Autonomous Data Warehouse.
+Go to [the documentation](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/autonomous-workflow.html#GUID-5780368D-6D40-475C-8DEB-DBA14BA675C3) on the typical workflow for using Autonomous Database.
 
 ## Acknowledgements
 
