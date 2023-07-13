@@ -111,7 +111,6 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
 
     Expand the **POST** section.
 
-    Expand the **POST** section.
     ![Examine the results](./images/post.png)
 
 2. Like the GET section, the POST section shows sample parameters and responses. Click on **Try it out** to test the calls.
