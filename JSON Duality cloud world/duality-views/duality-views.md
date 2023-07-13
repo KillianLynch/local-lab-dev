@@ -44,7 +44,7 @@ This lab assumes you have:
     SELECT * FROM movie_details where movie_id = 4006;
     </copy>
     ```
-    ![Image alt text](images/little.png " ")
+    ![adding the movie](images/little.png " ")
 
 2. In this step, we will perform the opposite operation. First, we will look at the duality view, then insert a record into the base table, and finally check the duality view for the updated record. Run the following code:
     ```
@@ -60,7 +60,7 @@ This lab assumes you have:
     </copy>
     ```
     
-    ![Image alt text](images/psy_thriller.png " ")
+    ![adding a new description](images/psy_thriller.png " ")
 
 ## Task 2: Update and replace a document by ID
 
@@ -74,7 +74,7 @@ This lab assumes you have:
     ```
     We can see that the Kids genre exists but has no description. Let's update this via SQL.
 
-    ![Image alt text](images/no_description.png " ")
+    ![showing the genre 25 isnt there](images/no_description.png " ")
 
 2. Run the following code to update the description of the Kids genre:
  
@@ -85,7 +85,7 @@ This lab assumes you have:
     WHERE GENERE_ID = 25;
     </copy>
     ```
-    ![Image alt text](images/kids_description.png " ")
+    ![showing the update ](images/kids_description.png " ")
 
 3. Now, let's check the Genres table again to see the updated description. Run the following code:
     ```
@@ -96,7 +96,7 @@ This lab assumes you have:
     ```
     We can see that the Kids genre now has a new description.
 
-    ![Image alt text](images/new_kids_genre.png " ")
+    ![showing the new kids description](images/new_kids_genre.png " ")
 
 4. Next, let's examine all movies that contain the Kids genre to see the updated description. Run the following code:
     ```
@@ -105,7 +105,7 @@ This lab assumes you have:
     FROM movies_dv WHERE json_value(data, '$.movie_id') IN (4004, 4005, 2355, 4006);
     </copy>
     ```
-    ![Image alt text](images/updated_kids_description.png " ")
+    ![showing all the movies with the kids genre](images/updated_kids_description.png " ")
 
 5. Finally, since we made an update via an SQL INSERT statement, let's insert a record via the Duality View. We will add a description to the Family genre. First, check the current description. Run the following code:
 
@@ -114,7 +114,7 @@ This lab assumes you have:
     SELECT GENERE_DESCRIPTION FROM GENERES WHERE GENERE_NAME = 'Family';
     </copy>
     ```
-    ![Image alt text](images/fam_description.png " ")
+    ![checking for a description in the family genre](images/fam_description.png " ")
 
 6. Update the Genres Duality View and add the description by running the following code:
     ```
@@ -122,7 +122,7 @@ This lab assumes you have:
     UPDATE GENRES_DV g set g.data = json_transform(data, SET '$.genre_description' = 'Family: Heartwarming and inclusive entertainment for all ages. Dive into a world of love, laughter, and togetherness as you embark on delightful adventures and celebrate the power of family bonds.') WHERE g.data.genre_name = 'Family';
     </copy>
     ```
-    ![Image alt text](images/family_update.png " ")
+    ![adding a genre description to family](images/family_update.png " ")
 
 7. Lastly, let's check the Duality Views containing the Family genre to see the updated description. Run the following code:
     ```
@@ -131,7 +131,7 @@ This lab assumes you have:
     FROM movies_dv WHERE json_value(data, '$.movie_id') IN (4004, 4005, 2355, 4006, 123, 124, 167, 190, 198, 212, 227);
     </copy>
     ```
-    ![Image alt text](images/family_proof.png " ")
+    ![checking to see the changes were made](images/family_proof.png " ")
 
 
 

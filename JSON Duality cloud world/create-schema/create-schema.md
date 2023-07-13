@@ -77,7 +77,7 @@ This lab assumes you have:
 
 8. Make sure the **Create the Movie Stream Schema** box is checked and click **Next**.
 
-    ![Connect to the database](images/create-schema.png " ")
+    ![Showing the swingbench UI](images/create-schema.png " ")
 
 9. Under the "Connect string" box, copy (Ctrl + V) or type the following:
 
@@ -86,7 +86,7 @@ This lab assumes you have:
     //hol23cfdr.livelabs.oraclevcn.com:1521/FREEPDB1
     </copy>
     ```
-    ![Connect to the database](images/movie-connect.png " ")
+    ![Showing the swingbench UI](images/movie-connect.png " ")
 
 11. In the Administrator Password box, copy and paste or type the following password:
 
@@ -97,34 +97,34 @@ This lab assumes you have:
     ```
     Once finished press **Next**
     
-    ![Connect to the database](images/movie-pass.png " ")
+    ![Showing the swingbench UI](images/movie-pass.png " ")
 
 
 12. Change the username to **movie** and leave the default password of movie, then click **Next** 
 
-    ![Connect to the database](images/movie.png " ")
+    ![Showing the swingbench UI](images/movie.png " ")
 
 13. Accept the defaults for the "Database Options" page and click **Next**
 
-    ![Connect to the database](images/default.png " ")
+    ![Showing the swingbench UI](images/default.png " ")
 
 14. Change the size of the benchmark using the "User Defined Scale" option to 0.5 and click **Next**
 
-    ![Connect to the database](images/movie-size.png " ")
+    ![Showing the swingbench UI](images/movie-size.png " ")
 
 15. Accept the default **Level of Parallelism** at 8 and click **Finish**
 
-    ![Connect to the database](images/parallelism.png " ")
+    ![Showing the swingbench UI](images/parallelism.png " ")
 
 16. This step may take approximately 1-2 minutes to complete. You can continue to the next section while this process runs in the background.
 
-    ![Connect to the database](images/completing.png " ")
+    ![Showing the swingbench UI](images/completing.png " ")
 
 ## Task 2: Start ORDS
 
 1. Open a new tab in the terminal by selecting **File** and **New Tab** 
 
-    ![Connect to the database](images/new-tab.png " ")
+    ![Opening a new terminal](images/new-tab.png " ")
 
 2. Now you will need the Movie Schema to finish creating. Once its done, to enable the RESTful services for the new movie schema, sign into SQL*Plus using the newly created movie user. Once logged in, copy the following command into the terminal:
 
@@ -134,7 +134,7 @@ This lab assumes you have:
     sqlplus movie/movie@//localhost:1521/FREEPDB1
     </copy>
     ```
-    ![Connect to the database](images/sql-login.png " ")
+    ![Showing the terminal](images/sql-login.png " ")
 
 3. Run the following command in SQL*Plus:
 
@@ -146,7 +146,7 @@ This lab assumes you have:
         /
     </copy>
     ```
-    ![Connect to the database](images/ords-enable.png " ")
+    ![Showing the terminal](images/ords-enable.png " ")
 
 4. Exit SQL*Plus by running the following command:
 
@@ -155,7 +155,7 @@ This lab assumes you have:
     exit
     </copy>
     ```
-    ![Connect to the database](images/exit1.png " ")
+    ![Showing the terminal](images/exit1.png " ")
 
 5. To start ORDS, enter the following command in the same command prompt window:
 
@@ -164,7 +164,7 @@ This lab assumes you have:
     ords serve &
     </copy>
 	```
-    ![Connect to the database](images/ords-serve.png " ")
+    ![Showing the terminal](images/ords-serve.png " ")
 
 6. IIf you are running this in a Sandbox, go to Activities and then click on New Window at the top. If Chrome is not running, click on Chrome.
 

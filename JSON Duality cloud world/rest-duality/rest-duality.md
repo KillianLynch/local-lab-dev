@@ -40,15 +40,15 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
 
 2. Click on **SQL** under the Development section. The first thing we want to do is enable REST on our Duality Views. Use the Oracle Database Actions Navigator on the left side of the screen, click the drop-down arrow for the box showing the Table objects, and select **Views**. Refer to the picture below.
 
-    ![Login to SQL Developer Web](./images/show-views.png)
+    ![showing the sql tile](./images/show-views.png)
 
 3. Right click on the `GENRES_DV`, hover the mouse over **REST** and click **Enable**.
 
-    ![Login to SQL Developer Web](./images/genre_rest.png)
+    ![showing the genres duality view ](./images/genre_rest.png)
 
 4. The REST Enable Object side panel will appear. Select **Enable** to continue.
 
-    ![Login to SQL Developer Web](./images/enable_genre.png)
+    ![showing the rest side panel](./images/enable_genre.png)
 
 5. Lets do the same thing for the `MOVIES_DV`, but this time using PL/SQL. Copy the following code and Select **Run Script**.
     ```
@@ -66,7 +66,7 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
     END;
     </copy>
     ```
-    ![Login to SQL Developer Web](./images/movie_rest.png)
+    ![showing the sql time to add the PL sql above](./images/movie_rest.png)
 
 
 6. Click on **Oracle** in the upper left-hand corner of the Database Actions page to return to the home screen. Click on **REST** and then click on **AutoREST**.
@@ -111,12 +111,12 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
 
     Expand the **POST** section.
 
-    ![Examine the results](./images/post.png)
+    ![Expand the post section](./images/post.png)
 
 2. Like the GET section, the POST section shows sample parameters and responses. Click on **Try it out** to test the calls.
 
     Click on **Try it out**. 
-    ![Examine the results](./images/post_try.png)
+    ![Click try it out ](./images/post_try.png)
 
 3. In the request body section, copy and paste the following code, and click **Run**:
 
@@ -146,7 +146,7 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
                 ]}
     </copy>
     ```
-    ![Examine the results](./images/post_oz.png)
+    ![Add a movie ](./images/post_oz.png)
 4. After executing the POST request, you will receive a response indicating that the movie was successfully added to the `MOVIES_DV` Duality View.
 
     ![Examine the results](./images/post_yes.png)

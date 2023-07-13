@@ -26,7 +26,7 @@ This lab assumes you have:
 
 1. Make sure your browser is open. If not, open a new browser window. If you're using a Sandbox, go to "Activities" and click "New Window" at the top. If Chrome is not running, click on Chrome.
 
-    ![Image alt text](images/new_chrome_window.png " ")
+    ![Opening chrome](images/new_chrome_window.png " ")
 
 2. Copy and paste the following address into your browser. This is the address for SQL Developer Web on your machine.
     **Note:**  If you did not start ORDS, ORDS stopped working, or you closed the terminal in the previous lab, go back and complete the steps in that lab to start ORDS; otherwise, you won't be able to log in here.
@@ -35,24 +35,24 @@ This lab assumes you have:
     http://localhost:8080/ords/sql-developer
     </copy>
     ```
-    ![Image alt text](images/ords_url.png " ")
+    ![adding the link to chrome](images/ords_url.png " ")
 
 3. Log in using the username "movie" and the password you set in Lab 1. (password should be movie if you copied from the instructions)
 
-    ![Image alt text](images/movie-pass.png " ")
+    ![signing in](images/movie-pass.png " ")
 
 4. To run SQL statements, you need to access the SQL worksheet. Click on "SQL" to launch it.
 
-    ![Image alt text](images/ords_landing_page_launch.png " ")
+    ![opening the SQL script](images/ords_landing_page_launch.png " ")
 
 5. You are now logged in and should see a screen that looks like this.
 
-    ![Image alt text](images/sql_login.png " ")    
+    ![SQL home screen](images/sql_login.png " ")    
 
 ## Task 2: Understanding the data
 1. Throughout this workshop, we will specify whether to click the "Run" button or the "Run Script" button. The "Run" button executes a single SQL statement and displays the output in a data grid. The "Run Script" button executes multiple SQL statements and logs their output. We will highlight which button to use in each step.
 
-    ![Image alt text](images/run_buttons.png " ")
+    ![showing the run button ](images/run_buttons.png " ")
 
 2. To make this workshop as realistic as possible, let's introduce the business scenario you will be working with - **Oracle MovieStream**.
 

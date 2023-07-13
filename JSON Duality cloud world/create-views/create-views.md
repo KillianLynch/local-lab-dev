@@ -38,7 +38,7 @@ This lab assumes you have:
     }
 	</copy>
     ```
-	![Image alt text](images/genre_dv.png " ")
+	![Creating the genre view](images/genre_dv.png " ")
 
 2. The next view we will create the `MOVIE_DETAILS_DV` duality view. Since this is for movie details, want them creating new movies as they become available  so we set those to @insert, @update, @delete. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click the **Run** button.
 
@@ -65,7 +65,7 @@ This lab assumes you have:
      };
 	</copy>
     ```
-    ![Image alt text](images/movies_dv.png " ")
+    ![Creating the movie view](images/movies_dv.png " ")
 
 
 
@@ -77,7 +77,7 @@ This lab assumes you have:
     INSERT INTO GENRES_DV VALUES('{"genre_name" : "Kids"}');
 	</copy>
     ```
-    ![Image alt text](images/kids.png " ")
+    ![adding into genre](images/kids.png " ")
 
 2. Insert a collection of documents into `MOVIES_DV`. This automatically populates the `MOVIE_DETAILS` and the `MOVIE_GENERE_MAPPING` table. If you remember the movies duality view joins movie_details and movies to genre mappings. It also allows inserts into both tables. Copy the sql below and click **Run Script**
 
@@ -109,7 +109,7 @@ This lab assumes you have:
     );
 	</copy>
 	```
-	![Image alt text](images/surfs.png " ")
+	![adding new movies](images/surfs.png " ")
 
 
 3. Populating a duality view automatically updates the data shown in related duality views by updating their underlying tables. For example, inserting documents into the `MOVIES_DV` duality view updates both the `MOVIE_DETAILS` table and the movies to genre mappings table.
@@ -149,7 +149,7 @@ To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_
     SELECT json_serialize(data PRETTY) FROM movies_dv m WHERE m.data.movie_id= 4005;
     </copy>
     ```
-    ![Image alt text](images/rat_etag.png " ")
+    ![showing no document](images/rat_etag.png " ")
 
 3. This shows us the current etage is, "etag" : "6BC843789BC84C54723E8DE208B3168C". Lets replace the full document and replace the summary and genres details.
     ```
@@ -189,7 +189,7 @@ To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_
     COMMIT;
     </copy>
     ```
-    ![Image alt text](images/update_rat.png " ")
+    ![showing Ratatouille JSON document ](images/update_rat.png " ")
 
 4. Now let's check the updated genres for the Ratatouille  movie along with the new etag. Copy the SQL below and click **Run Script**.
 
@@ -200,7 +200,7 @@ To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_
     ```
     We can see the genres, Family, Animation, Kids, and Adventure along with the a new etag of 212D1F6865F6FD0BAB515DD763DA57C3.
 
-    ![Image alt text](images/new_etag.png " ")
+    ![showing the newly created document](images/new_etag.png " ")
 
 
 ## Task 4: Update specific fields in the document identified by a predicate
@@ -216,7 +216,7 @@ To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_
     UPDATE movies_dv m set data = json_transform(data, APPEND '$.genres' =  JSON {'genre_id' : 25, 'genre_name' : 'Kids'} ) WHERE m.data.movie_id = 2355;
     </copy>
     ```
-    ![Image alt text](images/pan_update.png " ")
+    ![adding a new genre](images/pan_update.png " ")
 
 2. Select from the view to ensure the change is in. In this example we are also showing that you can use json_value in the where clause. Copy the SQL below and click **Run Script**.
 
@@ -226,7 +226,7 @@ To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_
     FROM movies_dv WHERE json_value(data, '$.movie_id') = 2355;
     </copy>
     ```
-    ![Image alt text](images/pan_kids.png " ")
+    ![showing the genre we just added](images/pan_kids.png " ")
 
 You may now **proceed to the next lab** 
 
