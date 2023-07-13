@@ -153,6 +153,7 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
 
 In summary, this lab showcased the versatility of JSON Relational Duality Views, which provide the ability to seamlessly work with data in both JSON Document format and SQL Relational format. The changes made through these views are automatically synchronized with the corresponding documents and tables. This flexibility empowers developers to perform create, read, update, and delete operations efficiently across multiple documents and tables, streamlining data management and enhancing productivity.
 
+
 ## Learn More
 
 - [JSON Relational Duality: The Revolutionary Convergence of Document, Object, and Relational Models](https://blogs.oracle.com/database/post/json-relational-duality-app-dev)
@@ -161,6 +162,6 @@ In summary, this lab showcased the versatility of JSON Relational Duality Views,
 - [ORDS Documentation](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/23.1/)
 
 ## Acknowledgements
-* **Author** - Killian Lynch
-* **Contributors** - Dominic Giles
-* **Last Updated By/Date** - Killian Lynch, Database Product Management, May 2023
+* **Author** - Killian Lynch, Oracle Database Product Management, Product Manager
+* **Contributors** - Dominic Giles, Oracle Database Product Management, Distinguished Product Manager
+* **Last Updated By/Date** - Killian Lynch, Oracle Database Product Management, Product Manager, May 2023

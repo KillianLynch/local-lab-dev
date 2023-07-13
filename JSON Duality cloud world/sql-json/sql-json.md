@@ -228,7 +228,7 @@ To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_
     ```
     ![Image alt text](images/pan_kids.png " ")
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab** 
 
 ## Learn More
 
@@ -237,6 +237,6 @@ You may now proceed to the next lab.
 * [Blog: Key benefits of JSON Relational Duality] (https://blogs.oracle.com/database/post/key-benefits-of-json-relational-duality-experience-it-today-using-oracle-database-23c-free-developer-release)
 
 ## Acknowledgements
-* **Author** - Killian Lynch
-* **Contributors** - Dominic Giles
-* **Last Updated By/Date** - Killian Lynch, Database Product Management, May 2023
+* **Author** - Killian Lynch, Oracle Database Product Management, Product Manager
+* **Contributors** - Dominic Giles, Oracle Database Product Management, Distinguished Product Manager
+* **Last Updated By/Date** - Killian Lynch, Oracle Database Product Management, Product Manager, May 2023

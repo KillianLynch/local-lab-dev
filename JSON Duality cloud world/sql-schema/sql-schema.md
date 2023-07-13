@@ -62,7 +62,7 @@ This lab assumes you have:
 
 * During this workshop, we will primarily focus on three key tables: `genres`, `movie_details`, and `movies_genre_map`. As we progress through the upcoming labs, we will explore the creation of duality views spanning across these tables. Additionally, we will explore techniques for efficiently adding, updating, and manipulating the underlying data within these tables using the duality views.
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab** 
 
 ## Learn More
 
@@ -71,7 +71,7 @@ You may now proceed to the next lab.
 * [Blog: Key benefits of JSON Relational Duality] (https://blogs.oracle.com/database/post/key-benefits-of-json-relational-duality-experience-it-today-using-oracle-database-23c-free-developer-release)
 
 ## Acknowledgements
-* **Author** - Killian Lynch
-* **Contributors** - Dominic Giles
-* **Last Updated By/Date** - Killian Lynch, Database Product Management, May 2023
+* **Author** - Killian Lynch, Oracle Database Product Management, Product Manager
+* **Contributors** - Dominic Giles, Oracle Database Product Management, Distinguished Product Manager
+* **Last Updated By/Date** - Killian Lynch, Oracle Database Product Management, Product Manager, May 2023
 

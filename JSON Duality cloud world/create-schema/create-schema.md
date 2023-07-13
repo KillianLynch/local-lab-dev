@@ -40,7 +40,7 @@ This lab assumes you have:
     ![Set environment](images/oraenv.png " ")
 
 
-3. Next click [here](https://www.dominicgiles.com/site_downloads/swingbench25052023_jdk11.zip) to download the latest version of Swingbench.
+3. Next click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRg[…]/livelabsfiles/o/data-management-library-files/swingbench02262023_jdk11.zip) to download the latest version of Swingbench.
 
 4. Once the download is complete, open a terminal or command prompt on your computer and navigate to the location where the file was saved.
 
@@ -182,7 +182,7 @@ This lab assumes you have:
 
     ![Ords login](images/ords_url.png " ")
 
-Congratulations! You have finished the setup for this lab. You may now continue to the next lab.
+Congratulations! You have finished the setup for this workshop. You may now **proceed to the next lab** 
 
 
 ## Learn More
@@ -190,6 +190,6 @@ Congratulations! You have finished the setup for this lab. You may now continue 
 * [Introducing Oracle Database 23c Free – Developer Release](https://blogs.oracle.com/database/post/oracle-database-23c-free)
 
 ## Acknowledgements
-* **Author** - Killian Lynch
-* **Contributors** - Dominic Giles
-* **Last Updated By/Date** - Killian Lynch, Database Product Management, May 2023
+* **Author** - Killian Lynch, Oracle Database Product Management, Product Manager
+* **Contributors** - Dominic Giles, Oracle Database Product Management, Distinguished Product Manager
+* **Last Updated By/Date** - Killian Lynch, Oracle Database Product Management, Product Manager, May 2023

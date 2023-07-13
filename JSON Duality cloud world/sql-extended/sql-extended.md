@@ -137,6 +137,7 @@ This lab assumes you have:
 
 8. In summary, this lab demonstrated the power of JSON Relational Duality Views, allowing you to work with data in either JSON Document format or SQL Relational format. Changes made through views are reflected in the corresponding documents and tables. This flexibility enables efficient and convenient create, read, update or delete across multiple documents and tables with ease.
 
+You may now **proceed to the next lab** 
 
 ## Learn More
 
@@ -145,7 +146,7 @@ This lab assumes you have:
 * [Blog: Key benefits of JSON Relational Duality] (https://blogs.oracle.com/database/post/key-benefits-of-json-relational-duality-experience-it-today-using-oracle-database-23c-free-developer-release)
 
 ## Acknowledgements
-* **Author** - Killian Lynch
-* **Contributors** - Dominic Giles
-* **Last Updated By/Date** - Killian Lynch, Database Product Management, May 2023
+* **Author** - Killian Lynch, Oracle Database Product Management, Product Manager
+* **Contributors** - Dominic Giles, Oracle Database Product Management, Distinguished Product Manager
+* **Last Updated By/Date** - Killian Lynch, Oracle Database Product Management, Product Manager, May 2023
 

@@ -20,33 +20,33 @@
             "filename": "../../create-schema/create-schema.md"
         },
         {
-            "title": "Lab 2: Understand the data",
+            "title": "Lab 2: Explore the data",
             "description": "Understanding the environment, schema, and data",
             "type": "livelabs",
             "filename": "../../sql-schema/sql-schema.md"
         },
         {
-            "title": "Lab 3: JSON Relational Duality Views",
-            "description": "Working with JSON and the Duality Views",
+            "title": "Lab 3: Build JSON Relational Duality Views",
+            "description": "Creating the Duality Views",
             "type": "livelabs",
             "filename": "../../sql-json/sql-json.md"
         },
         {
-            "title": "Lab 4: The Extreme Flexibility of JSON Duality Views",
-            "description": "Working with SQL and the Duality Views",
+            "title": "Lab 4: Work with JSON Duality Views",
+            "description": "Working with SQL/JSON and the Duality Views",
             "type": "livelabs",
             "filename": "../../sql-extended/sql-extended.md"
         },
         {
-            "title": "Lab 5: Duality Views with REST",
-            "description": "Working with SQL and the Duality Views",
+            "title": "Lab 5: Create JSON Relational Duality Views with REST",
+            "description": "Working with AutoREST and the Duality Views",
             "type": "livelabs",
             "filename": "../../rest-duality/rest-duality.md"
         },
         {
-          "title": "Need Help?",
+          "title": "Oracle CloudWorld 2023 - Support",
           "description": "Template to link to Need Help lab at the end of workshop. Change 'CHANGE-ME' in link below to need-help-livelabs.md or need-help-freetier.md",
-          "filename":"https://raw.githubusercontent.com/oracle-livelabs/common/main/labs/need-help/need-help-freetier.md"
+          "filename":"https://oracle-livelabs.github.io/common/support/ocwsupportlab/ocwsupportlab.md"
         }
     ]
 }
