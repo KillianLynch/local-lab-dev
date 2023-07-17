@@ -25,22 +25,22 @@ This lab assumes you have:
 ## Task 1: Create the duality views
 
 
-1. Create the `GENRES_DV` duality view. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click the **Run** button.
+1. Create the `GENRES_DV` duality view. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click the **Run Statement** button.
 
     ```
     <copy>
     create or replace json duality view genres_dv
-     as GENERES @INSERT @UPDATE @DELETE
+     as GENRES @INSERT @UPDATE @DELETE
     {
-        genre_id : GENERE_ID,
-        genre_name : GENERE_NAME
-        genre_description : GENERE_DESCRIPTION
+        genre_id : GENRE_ID,
+        genre_name : GENRE_NAME
+        genre_description : GENRE_DESCRIPTION
     }
 	</copy>
     ```
 	![Creating the genre view](images/genre_dv.png " ")
 
-2. The next view we will create the `MOVIE_DETAILS_DV` duality view. Since this is for movie details, want them creating new movies as they become available  so we set those to @insert, @update, @delete. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click the **Run** button.
+2. The next view we will create the `MOVIE_DETAILS_DV` duality view. Since this is for movie details, want them creating new movies as they become available  so we set those to @insert, @update, @delete. You can either click the trash to clear the worksheet or delete what is there before pasting the code below. Click the **Run Statement** button.
 
 	```
 	<copy>
@@ -54,13 +54,13 @@ This lab assumes you have:
             year : YEAR
             runtime : RUNTIME
             summary : SUMMARY
-        genres : MOVIES_GENERE_MAP @INSERT @UPDATE @DELETE {
+        genres : MOVIES_GENRE_MAP @INSERT @UPDATE @DELETE {
                 GenreToMovieID : MG_ID
-                GENERES
+                GENRES
                 @unnest {
-                    genre_id : GENERE_ID,
-                    genre_name : GENERE_NAME,
-                    genre_description: GENERE_DESCRIPTION}
+                    genre_id : GENRE_ID,
+                    genre_name : GENRE_NAME,
+                    genre_description: GENRE_DESCRIPTION}
                 }
      };
 	</copy>
@@ -70,7 +70,7 @@ This lab assumes you have:
 
 
 ## Task 2: Adding to our movie schema
-1. Insert a new genre into the `GENRES_DV` table to include kid-friendly movies. Use the following SQL script: Copy the sql below and click the **Run** button.
+1. Insert a new genre into the `GENRES_DV` table to include kid-friendly movies. Use the following SQL script: Copy the sql below and click the **Run Statement** button.
 
 	```
 	<copy>
@@ -79,7 +79,7 @@ This lab assumes you have:
     ```
     ![adding into genre](images/kids.png " ")
 
-2. Insert a collection of documents into `MOVIES_DV`. This automatically populates the `MOVIE_DETAILS` and the `MOVIE_GENERE_MAPPING` table. If you remember the movies duality view joins movie_details and movies to genre mappings. It also allows inserts into both tables. Copy the sql below and click **Run Script**
+2. Insert a collection of documents into `MOVIES_DV`. This automatically populates the `MOVIE_DETAILS` and the `MOVIE_GENRE_MAPPING` table. If you remember the movies duality view joins movie_details and movies to genre mappings. It also allows inserts into both tables. Copy the sql below and click **Run Script**
 
     ```
     <copy>
@@ -151,7 +151,7 @@ To verify the changes, you can list the contents of the `MOVIES_DV` and `GENRES_
     ```
     ![showing no document](images/rat_etag.png " ")
 
-3. This shows us the current etage is, "etag" : "6BC843789BC84C54723E8DE208B3168C". Lets replace the full document and replace the summary and genres details.
+3. This shows us the current etag is, "etag" : "6BC843789BC84C54723E8DE208B3168C". Lets replace the full document and replace the summary and genres details.
     ```
     <copy>
 
