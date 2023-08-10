@@ -118,7 +118,7 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
     Click on **Try it out**. 
     ![Click try it out ](./images/post_try.png)
 
-3. In the request body section, copy and paste the following code, and click **Execute**:
+3. In the request body section, copy and paste the following code, and click **Run**:
 
     ```
     <copy>
@@ -152,9 +152,6 @@ The ORDS installation includes SQL Developer Web, an online tool for managing yo
     ![Examine the results](./images/post_yes.png)
 
 In summary, this lab showcased the versatility of JSON Relational Duality Views, which provide the ability to seamlessly work with data in both JSON Document format and SQL Relational format. The changes made through these views are automatically synchronized with the corresponding documents and tables. This flexibility empowers developers to perform create, read, update, and delete operations efficiently across multiple documents and tables, streamlining data management and enhancing productivity.
-
-
-Congratulations you have now completed the JSON Relational Duality LiveLab.
 
 
 ## Learn More
