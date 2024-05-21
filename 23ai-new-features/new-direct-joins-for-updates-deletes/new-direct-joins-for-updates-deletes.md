@@ -4,7 +4,7 @@
 
 Welcome to the "Direct Joins Workshop: Simplifying Data Manipulation in SQL"! In this workshop, you'll learn about the new 23ai feature called direct joins in SQL. Direct joins allow you to easily update and delete data across multiple related tables. They're like shortcuts that make your SQL queries more efficient and straightforward.
 
-Estimated Lab Time: 15 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objective:
 The goal of this workshop is to help you understand and use direct joins effectively in SQL. By the end of this workshop, you'll be able to confidently update and delete data across tables, making your database management tasks much easier.

@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Welcome to the "Annotation Exploration in Oracle Database 23ai" lab! Annotations serve as a powerful tool for documenting and classifying various database objects, providing valuable insights into their purpose and usage.
+Welcome to the "Annotation Exploration in Oracle Database 23ai" lab. Annotations are a powerful tool for documenting and classifying database objects, along with providing insights into their purpose and usage.
 
-In today's technology-driven world, efficient documentation and organization of database objects are essential for smooth operation and maintenance of database systems. Annotations, as an extension of traditional comments, offer a more structured and versatile approach to database documentation. They allow us to associate name-value pairs with database objects, enabling us to describe, classify, and categorize them according to our specific requirements.
+In today's technology-driven world, efficient documentation and organization of database objects are essential for smooth operation of database systems. Annotations, as an extension of traditional comments, offer a more structured and versatile approach to database documentation. They allow us to associate name-value pairs with database objects, allowing us to describe, classify, and categorize them according to our specific requirements.
 
 Estimated Lab Time: 10 minutes
 
@@ -15,48 +15,13 @@ The objective of this lab is to provide hands-on experience with annotations in 
 - Access to Oracle Database 23ai.
 - Basic understanding of SQL is helpful.
 
-## Task 1: Lab setup
+## Task 1: Adding Annotations
 
-1. To begin, let's set up the lab environment. First, ensure that the lab setup script is executable by running the following command:
-
-    ```
-    <copy>
-    chmod +x setup.sh
-    </copy>
-    ```
-    ![enable privs](images/chmod.png " ")
-
-2. Execute the setup script by running:
-
-    ```
-    <copy>
-    ./setup.sh
-    </copy>
-    ```
-
-    ![Run the script](images/setup.png " ")
-
-3. Now, paste the following URL into the Google Chrome search bar:
-
-    ```
-    <copy>
-    http://localhost:8080/ords/sql-developer
-    </copy>
-    ```
-    ![open chrome](images/chrome.png " ")
+1. From the Autonomous Database home page, **click** Database action and then **click** SQL.
+    ![click SQL](images/im1.png " ")
 
 
-4. Sign in to SQL Developer Web using the movie schema with the **username movie and password movie**.
-
-    ![paste the url](images/ords-url.png " ")
-
-5. Click on the SQL tile.
-
-    ![click SQL](images/sql-tile.png " ")
-
-
-## Task 2: Adding Annotations
-1. Why Use Annotations? Annotations provide a way to add additional property metadata for database objects, such as tables, columns, views, materialized views and even domains. 
+2. Why Use Annotations? Annotations provide a way to add additional property metadata for database objects, such as tables, columns, views, materialized views and even domains. 
 
     Compared to comments, annotations offer more flexibility. They can be used with various types of database elements, not just tables. Also, you can attach multiple annotations to the same object, which isn't possible with comments. Annotations are keys with optional values. You can use them to record any metadata you want about the object in question. This is important because there is no set format for comments. So which do you use, JSON? XML? Delimited key-value pairs? And on top of this, how do you enforce the format for all future maintainers? 
 
@@ -88,7 +53,7 @@ The objective of this lab is to provide hands-on experience with annotations in 
 
     ![create the table](images/annotations-1.png " ")
 
-2. You can also update objects to add or drop annotations. For example we could drop and add the annotation for the books table
+3. You can also update objects to add or drop annotations. For example we could drop and add the annotation for the books table
     ```
     <copy>
     alter table books annotations (drop books_table);
@@ -99,7 +64,7 @@ The objective of this lab is to provide hands-on experience with annotations in 
     ![alter the books table annotations](images/annotations-2.png " ")
 
 
-3. Now that we have annotations we can view them with the *_usage_annotations views
+4. Now that we have annotations we can view them with the *\_usage\_annotations views
 
     ```
     <copy>
@@ -131,4 +96,4 @@ This concludes the Annotations Lab.
 ## Acknowledgements
 * **Author** - Killian Lynch, Oracle Database Product Manager
 * **Contributors** - Chris Saxon, Senior Developer Advocate, Dom Giles, Distinguished Database Product Manager
-* **Last Updated By/Date** - Killian Lynch, Oracle Database Product Management, Product Manager, May 2023
+* **Last Updated By/Date** - Killian Lynch, Oracle Database Product Management, Product Manager, May 2024
