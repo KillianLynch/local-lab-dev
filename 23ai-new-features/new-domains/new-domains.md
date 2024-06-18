@@ -1,33 +1,35 @@
-# Comprehensive Domain Exploration in Oracle Database 23ai
+# Comprehensive Data Usecase Domains Exploration in Oracle Database 23ai
 
 ## Introduction
 
-Welcome to the "Comprehensive Domain Exploration in Oracle Database 23ai" lab! Domains play a crucial role in ensuring data integrity and consistency within database applications. In this lab, we will explore domains in Oracle Database 23ai, covering single column domains, multi-column domains, and flexible domains. Through these examples, you will gain an understanding of how domains can be defined, applied, and used to maintain data quality.
+Welcome to the "Comprehensive Data Usecase Domains Exploration in Oracle Database 23ai" lab! Data Usecase Domains play a crucial role in ensuring data integrity and consistency within database applications. In this lab, we will explore Data Usecase Domains in Oracle Database 23ai, covering single column Data Usecase Domains, multi-column Data Usecase Domains, and flexible Data Usecase Domains. Through these examples, you will gain an understanding of how Data Usecase Domains can be defined, applied, and used to maintain data quality.
+
+Estimated Lab Time: 20 minutes
 
 ### Objective:
-The objective of this lab is to provide comprehensive hands-on experience with domains in Oracle Database 23ai. By the end of this lab, you will be proficient in defining various types of domains, applying them to tables, and leveraging domain functions for effective data management.
+The objective of this lab is to provide comprehensive hands-on experience with Data Usecase Domains in Oracle Database 23ai. By the end of this lab, you will be proficient in defining various types of Data Usecase Domains, applying them to tables, and leveraging domain functions for effective data management.
 
 ### Prerequisites:
 - Access to Oracle Database 23ai.
 - Basic understanding of SQL concepts.
 
 
-## Task 1: Understanding Domains
+## Task 1: Understanding Data Usecase Domains
 
 1. From the Autonomous Database home page, **click** Database action and then **click** SQL.
     ![click SQL](images/im1.png " ")
 
-1. **Overview of Domains:**
-   Domains serve as a way for defining properties and constraints associated with columns. They ensure consistency in data representation and validation throughout the application.
+2. **Overview of Data Usecase Domains:**
+   Data Usecase Domains serve as a way for defining properties and constraints associated with columns. They ensure consistency in data representation and validation throughout the application.
 
-2. **Types of Domains:**
+3. **Types of Data Usecase Domains:**
    - Single Column Domain: Applies constraints to a single column.
    - Multi-Column Domain: Applies constraints to multiple columns.
-   - Flexible Domain: Allows dynamic selection of domains based on specific conditions.
+   - Flexible Domain: Allows dynamic selection of Data Usecase Domains based on specific conditions.
 
-## Task 2: Creating and Implementing Domains
+## Task 2: Creating and Implementing Data Usecase Domains
 
-1. Single Column Domain Example: From the explanation above lets see what each of the tree types of domains look like. We'll start by creating a single column domain for storing product prices. We will enforce a constraint to ensure that prices are positive numbers.
+1. Single Column Domain Example: From the explanation above lets see what each of the tree types of Data Usecase Domains look like. We'll start by creating a single column domain for storing product prices. We will enforce a constraint to ensure that prices are positive numbers.
 
     ```
     <copy>
@@ -39,7 +41,7 @@ The objective of this lab is to provide comprehensive hands-on experience with d
     constraint price check (value > 0);
     </copy>
     ```
-    ![click SQL](images/im2.png " ")
+    ![create a domain on a single column](images/im2.png " ")
 
 2. Multi-Column Domain Example: Next, we'll create a multi-column domain to represent geographical coordinates. This domain will enforce constraints on latitude and longitude values.
 
@@ -57,11 +59,11 @@ The objective of this lab is to provide comprehensive hands-on experience with d
     constraint coordinates check (latitude between -90 and 90 and longitude between -180 and 180);
     </copy>
     ```
-3. Flexible Domain Example: For the flexible domain, let's consider a scenario where we want to store contact information for individuals. We'll create domains for different types of contacts and dynamically select the appropriate domain based on the contact type.
+3. Flexible Domain Example: For the flexible domain, let's consider a scenario where we want to store contact information for individuals. We'll create Data Usecase Domains for different types of contacts and dynamically select the appropriate domain based on the contact type.
 
     ```
     <copy>
-    -- Drop the domains if they already exists
+    -- Drop the Data Usecase Domains if they already exists
     drop domain if exists personal_contact_dom force;
     drop domain if exists business_contact_dom force;
     drop domain if exists default_contact_dom force;
@@ -110,17 +112,17 @@ The objective of this lab is to provide comprehensive hands-on experience with d
 
     </copy>
     ```
-4. Oracle Database 23ai also has some pre-created domains that we can use with many more on the way. Lets see what those are.
+4. Oracle Database 23ai also has some pre-created Data Usecase Domains that we can use with many more on the way. Lets see what those are.
 
     ```
     <copy>
     select name as "System provided domains" from all_domains where owner = 'SYS'
     </copy>
     ```
-    ![click SQL](images/provided-domains.png " ")
+    ![check the system provided domains](images/provided-domains.png " ")
 
-## Task 3: Implementing and Utilizing Domains in Tables for Data Management  
-1. Now, let's create some tables and apply our domains.
+## Task 3: Implementing and Utilizing Data Usecase Domains in Tables for Data Management  
+1. Now, let's create some tables and apply our Data Usecase Domains.
 
     ```
     <copy>
@@ -192,11 +194,11 @@ The objective of this lab is to provide comprehensive hands-on experience with d
     </copy>
     ```
 
-## Task 4: Viewing our domains
-1. We can view our domains to see their information. The dictionary views: [USER|DBA|ALL]\_DOMAINS and [USER|DBA|ALL]\_DOMAIN_COLS represent domains and provide the following information about the domain columns. For flexible domains, the views also include the domain selector expression. 
+## Task 4: Viewing our Data Usecase Domains
+1. We can view our Data Usecase Domains to see their information. The dictionary views: [USER|DBA|ALL]\_DOMAINS and [USER|DBA|ALL]\_DOMAIN_COLS represent Data Usecase Domains and provide the following information about the domain columns. For flexible Data Usecase Domains, the views also include the domain selector expression. 
 
 
-2. Lets take a look at the domains we've created and the associated information.
+2. Lets take a look at the Data Usecase Domains we've created and the associated information.
 
     ```
     <copy>
@@ -204,14 +206,25 @@ The objective of this lab is to provide comprehensive hands-on experience with d
     </copy>
     ```
 
-3. Domains play a crucial role in maintaining data integrity and consistency within database applications. Feel free to explore more advanced features and experiment with different domain types to enhance your database development skills.
+3. Data Usecase Domains play a crucial role in maintaining data integrity and consistency within database applications. Feel free to explore more advanced features and experiment with different domain types to enhance your database development skills.
 
-If you have any questions or want to delve deeper into specific topics, refer to the Oracle documentation or continue experimenting on your own.
+    If you have any questions or want to delve deeper into specific topics, refer to the Oracle documentation or continue experimenting on your own.
+
+4. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    DROP TABLE products PURGE;
+    DROP TABLE locations PURGE;
+    DROP TABLE contacts PURGE;
+
+    </copy>
+    ```
 
 ## Learn More
 
-* [Application Usage Domains Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/cncpt/application-data-usage.html#GUID-40EF7B72-ECE3-4BF1-B7CF-0C88B810C9F6)
-* [SQL Domains Blog](https://blogs.oracle.com/coretec/post/less-coding-with-sql-domains-in-23ai)
+* [Data Usecase Domains Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/cncpt/application-data-usage.html#GUID-40EF7B72-ECE3-4BF1-B7CF-0C88B810C9F6)
+* [Data Usecase Domains Blog](https://blogs.oracle.com/coretec/post/less-coding-with-sql-domains-in-23ai)
 
 
 ## Acknowledgements

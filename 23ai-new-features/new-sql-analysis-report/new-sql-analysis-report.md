@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Welcome to the "Exploring the SQL Analysis Report Feature in Oracle Database 23ai" workshop. In this workshop, you will learn about the new SQL Analysis Report feature in the optimizer introduced in Oracle Database 23ai. SQL Analysis Report is there to help improve your SQL queries by giving insights and suggestions inside your execution plans. The SQL Analysis Report is available in DBMS\_XPLAN and SQL Monitor. We are going to take a look at the DBMS\_XPLAN functionality.
+Welcome to the "Exploring the SQL Analysis Report Feature in Oracle Database 23ai" lab. In this lab, you will learn about the new SQL Analysis Report feature in the optimizer introduced in Oracle Database 23ai. SQL Analysis Report is there to help improve your SQL queries by giving insights and suggestions inside your execution plans. The SQL Analysis Report is available in DBMS\_XPLAN and SQL Monitor. We are going to take a look at the DBMS\_XPLAN functionality.
 
 Estimated Lab Time: 15 minutes
 
 ### Objective:
-The objective of this workshop is to show you with the SQL Analysis Report feature in Oracle Database 23ai. By the end of this workshop, you will be able to interpret SQL Analysis Reports and use the insights to improve query performance.
+The objective of this lab is to show you with the SQL Analysis Report feature in Oracle Database 23ai. By the end of this lab, you will be able to interpret SQL Analysis Reports and use the insights to improve query performance.
 
 ### Prerequisites:
 - Access to Oracle Database 23ai.
@@ -24,8 +24,8 @@ The objective of this workshop is to show you with the SQL Analysis Report featu
 
     ```
     <copy>
-    DROP TABLE if exists sales;
-    DROP TABLE if exists products;
+    DROP TABLE sales cascade constraints;
+    DROP TABLE products cascade constraints;
 
     CREATE TABLE sales (
         sale_id INT,
@@ -60,7 +60,7 @@ The objective of this workshop is to show you with the SQL Analysis Report featu
     ```
     ![insert some tables](images/im2.png " ")
 
-2. The SQL Analysis Report appears in a new section at the end of a SQL execution plan. Before we jump into the Analysis Report, a little housekeeping... The SQL Analysis Report is available in `DBMS_XPLAN` and SQL Monitor. We are going to take a look at the `DBMS_XPLAN` functionality.
+3. The SQL Analysis Report appears in a new section at the end of a SQL execution plan. Before we jump into the Analysis Report, a little housekeeping... The SQL Analysis Report is available in `DBMS_XPLAN` and SQL Monitor. We are going to take a look at the `DBMS_XPLAN` functionality.
 
     We can customize how the report is created using the `DBMS_XPLAN` functions:
     * DISPLAY
@@ -87,7 +87,7 @@ The objective of this workshop is to show you with the SQL Analysis Report featu
 
     </copy>
     ```
-    ![insert some employees](images/im3.png " ")
+    ![check the explain plan](images/im3.png " ")
 
     The report comes back and lets us know that we can improve the way we wrote the query. specifically it says "The query block has 1 cartesian product which may be expensive. Consider adding join conditions or removing the disconnected tables or views."
 
@@ -115,7 +115,7 @@ The objective of this workshop is to show you with the SQL Analysis Report featu
     SELECT * FROM table(DBMS_XPLAN.DISPLAY());
     </copy>
     ```
-    ![insert more employees](images/im4.png " ")
+    ![rewrite the query](images/im4.png " ")
 
 
 3. Lets take a look at another small example.
@@ -134,7 +134,7 @@ The objective of this workshop is to show you with the SQL Analysis Report featu
     SELECT * FROM table(DBMS_XPLAN.DISPLAY());
     </copy>
     ```
-    ![insert more employees](images/im5.png " ")
+    ![check another table](images/im5.png " ")
 
 4. The SQL Analysis Report suggests that we consider a union all instead of the union. Lets implement those changes.
 
@@ -153,12 +153,24 @@ The objective of this workshop is to show you with the SQL Analysis Report featu
     </copy>
     ```
 
-    ![insert more employees](images/im6.png " ")
+    ![implement the changes](images/im6.png " ")
 
     Again we're able to improve our query using the report.
 
 
 5. In this workshop, we've explored SQL analysis techniques for optimizing SQL performance. By understanding SQL execution plans and interpreting SQL analysis reports, you can identify performance bottlenecks and apply optimization strategies to enhance database performance. Feel try to continue trying out other queries or check out another lab.
+
+5. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    DROP TABLE sales cascade constraints;
+    DROP TABLE products cascade constraints;
+    </copy>
+    ```
+
+You may now **proceed to the next lab** 
+
 
 ## Learn More
 

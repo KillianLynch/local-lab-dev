@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Welcome to the Reclaiming Unused Space in Oracle Database 23ai with 'shrink_tablespace' lab. In this lab, you will learn about the new `shrink_tablespace` procedure introduced in Oracle Database 23ai. This procedure offers a simple way to reclaim unused or free space in your tablespace, optimizing database performance and resource utilization.
+Welcome to the Reclaiming Unused Space in Oracle Database 23ai with `shrink_tablespace` lab. In this lab, you will learn about the new `shrink_tablespace` procedure introduced in Oracle Database 23ai. This procedure offers a simple way to reclaim unused or free space in your tablespace, optimizing database performance and resource utilization.
 
 Estimated Lab Time: 15 minutes
 
 ### Objective:
-The objective of this lab is to familiarize you with the `shrink_tablespace` procedure in Oracle Database 23ai and show its practical application for reclaiming unused space in tablespaces. By the end of this lab, you will be able to resize datafiles and organize objects in tablespaces using the `shrink_tablespace` procedure.
+The objective of this lab is to familiarize you with the `shrink_tablespace` procedure in Oracle Database 23ai and show its practical application for reclaiming unused space in tablespaces. By the end of this lab, you will be able to resize data files and organize objects in tablespaces using the `shrink_tablespace` procedure.
 
 ### Prerequisites:
 - Access to Oracle Database 23ai.
@@ -17,17 +17,17 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
 
 1. Before we jump into the process of using the `shrink_tablespace` procedure, let's understand why reclaiming unused space in tablespaces is important.
 
-    Unused or free space within tablespaces can grow over time, reducing database efficiency and performance. Shrinking tablespaces helps optimize database resource utilization by reclaiming unused space. The `shrink_tablespace` procedure provides a convenient solution for resizing datafiles and organizing objects.
+    Unused or free space within tablespaces can grow over time, reducing database efficiency and performance. Shrinking tablespaces helps optimize database resource utilization by reclaiming unused space. The `shrink_tablespace` procedure provides a convenient solution for resizing data files and organizing objects.
 
     If you haven't already, open up SQL Developer Web (Database Actions)
-        ![create a table](images/im2.png " ")
+        ![open sql](images/im2.png " ")
 
 
 2. Now, let's explore how to use the `shrink_tablespace` procedure to reclaim unused space in a tablespace.
 
     To begin, lets first check our current tablespace size.
 
-    > Your tablespace size may be different, thats okay.
+    > Your tablespace size may be different depending on what prior labs you've done, thats okay.
 
     ```
     <copy>
@@ -38,9 +38,7 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
     GROUP BY tablespace_name;
     </copy>
     ```
-    ![create a table](images/im1.png " ")
-
-    
+    ![calculate your tablespace size](images/im1.png " ")
 
 2. We can create a new tablespace and populate it with data. You can use the following SQL statement as an example:
 
@@ -55,9 +53,9 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
     ```
     ![create a table](images/im3.png " ")
 
-3. We'll now add 2 million rows to the table (feel free to skip this and read the rest if you don't want to add the data to your table.)
+3. We'll now add 2 million rows to the table (feel free to skip this and read the rest if you don't want to add the data to your table).
 
-    > **This creates about 2 gigs worth of data - use cautiously**
+    > **This creates about 2 gigs worth of data - use cautiously if you're on the free tier**
 
     ```
     <copy>
@@ -66,7 +64,7 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
         v_name VARCHAR2(100);
         v_description VARCHAR2(1000);
     BEGIN
-        FOR i IN 1..2000000 LOOP -- Inserting 1 million rows
+        FOR i IN 1..2000000 LOOP -- Inserting 2 million rows
             v_id := i;
             v_name := 'Name_' || i;
             v_description := 'Description for row ' || i;
@@ -81,7 +79,7 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
     END;
     </copy>
     ```
-    ![create a table](images/im4.png " ")
+    ![create some data](images/im4.png " ")
 
 ## Task 2: Delete data to create unused space
 1. Lets check the current size of our tablespace after adding a bunch of data from above.
@@ -95,14 +93,14 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
     GROUP BY tablespace_name;
     </copy>
     ```
-    ![create a table](images/im5.png " ")
+    ![check the tablespace size after adding data](images/im5.png " ")
 
-    We've got about 2 gigs worth of data in our tablespace now.
+    We've got about 2 gigs worth of data in our tablespace now. Yours may be different, thats okay.
 
 2. Delete some data from the tablespace to create unused or free space. This can be achieved by deleting tables or indexes, creating 'holes' in the tablespace. Here we'll drop the whole table.
     ```
     <copy>
-    drop table my_table purge;
+    drop table my_table cascade constraints;
     </copy>
     ```
     ![create a table](images/im6.png " ")
@@ -118,7 +116,7 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
     GROUP BY tablespace_name;
     </copy>
     ```
-    ![create a table](images/im5.png " ")
+    ![check the tablespace size](images/im5.png " ")
 
 ## Task 3: Understanding the `shrink_tablespace` Procedure
 
@@ -137,7 +135,7 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
     execute dbms_space.SHRINK_TABLESPACE('DATA', SHRINK_MODE=>DBMS_SPACE.TS_MODE_ANALYZE);
     </copy>
     ```
-    ![create a table](images/im7.png " ")
+    ![analyze the tablespace](images/im7.png " ")
 
 3. Analyze gives us a bunch of useful information. Let's take the default parameter's (meaning 'TS\_TARGET\_MAX\_SHRINK') and shrink the tablespace: (See below for the API description)
 
@@ -146,23 +144,26 @@ The objective of this lab is to familiarize you with the `shrink_tablespace` pro
     execute dbms_space.SHRINK_TABLESPACE('DATA');
     </copy>
     ```
-    ![create a table](images/im8.png " ")
+    ![execute the shrink](images/im8.png " ")
 
 4. The API Description:
     Input Parameters:
     * **ts_name**: This is the name of the tablespace you want to shrink.
     * **shrink_mode**: Shrink mode has a couple options like `TS_MODE_SHRINK`, `TS_MODE_ANALYZE`, and `TS_MODE_SHRINK_FORCE`. By default, it's set to `TS_MODE_SHRINK`, which moves objects online by default (except for Index-Organized Tables or IOT). `TS_MODE_SHRINK_FORCE` also moves objects online by default, but if the online move fails, it attempts an offline move.
-    * **target_size**: This parameter lets you pick the new tablespace datafile size (in bytes). The default is `TS_TARGET_MAX_SHRINK`.
+    * **target_size**: This parameter lets you pick the new tablespace data file size (in bytes). The default is `TS_TARGET_MAX_SHRINK`.
 
     Output Parameters (`shrink_result`):
-    * **`TS_MODE_SHRINK`** (shown above) The procedure returns the total number and size of moved objects. It provides the original and new datafile size. You get information on the process time.
+    * **`TS_MODE_SHRINK`** (shown above) The procedure returns the total number and size of moved objects. It provides the original and new data file size. You get information on the process time.
     * **`TS_MODE_ANALYZE`**:
         It generates a list of movable objects.
         You'll see the total number and size of movable objects.
         It suggests the target size.
         It also provides the process time.
 
-4. In this lab, you've learned how to reclaim unused space in tablespaces using the `shrink_tablespace` procedure in Oracle Database 23ai. By efficiently resizing datafiles and organizing objects, you can optimize database performance and resource utilization.
+4. In this lab, you've learned how to reclaim unused space in tablespaces using the `shrink_tablespace` procedure in Oracle Database 23ai. By efficiently resizing data files and organizing objects, you can optimize database performance and resource utilization.
+
+You may now **proceed to the next lab** 
+
 
 ## Learn More
 

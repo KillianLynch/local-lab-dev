@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the Working with Schema-Level Privileges workshop. In this workshop, you will learn how to work with the new schema-level privilege management feature introduced in Oracle Database 23ai. 
+Welcome to the Working with Schema-Level Privileges lab. In this lab, you will learn how to work with the new schema-level privilege management feature introduced in Oracle Database 23ai. 
 
 Estimated Lab Time: 15 minutes
 
@@ -11,7 +11,7 @@ The objective of this workshop is to learn how to work with the schema-level pri
 
 ### Prerequisites:
 - Access to Oracle Database 23ai.
-- Basic understanding of database schemas and privileges is recommended.
+- Basic understanding of database schemas and privileges is recommended but not required.
 
 ## Task 1: Understanding Schema-Level Privileges
 
@@ -28,17 +28,17 @@ The objective of this workshop is to learn how to work with the schema-level pri
 1. From the Autonomous Database home page, **click** Database action and then **click** SQL.
     ![click SQL](images/im1.png " ")
 
-2. Let's now look at the syntax and usage of schema-level privileges in Oracle Database 23ai. First we'll add a test user.
+2. Let's now look at the syntax and usage of schema-level privileges in Oracle Database 23ai. First we'll add a couple test users.
 
     ```
     <copy>
-    drop user if exists bob;
-    drop user if exists sally;
+    drop user if exists bob cascade;
+    drop user if exists sally cascade;
     create user bob identified by Oracle123long;
     create user sally identified by Oracle123long;
     </copy>
     ```
-    ![click SQL](images/im2.png " ")
+    ![drop and create the needed users for the lab](images/im2.png " ")
 
     Now we can grant our bob user to sally's schema to 
 
@@ -47,7 +47,7 @@ The objective of this workshop is to learn how to work with the schema-level pri
     GRANT SELECT ANY TABLE ON SCHEMA sally TO BOB;
     </copy>
     ```
-    ![click SQL](images/im3.png " ")
+    ![grant the schema level privileges](images/im3.png " ")
 
 
     This single grant provides user BOB with SELECT privileges on all tables and views within the schema sally uses, ensuring access without compromising security.
@@ -61,16 +61,28 @@ The objective of this workshop is to learn how to work with the schema-level pri
     SELECT * FROM DBA_SCHEMA_PRIVS WHERE GRANTEE = 'BOB';
     </copy>
     ```
-    ![click SQL](images/im4.png " ")
+    ![check the grantees](images/im4.png " ")
 
 
-## Task 4: Leveraging Advanced Privilege Management
+## Task 3: Leveraging Advanced Privilege Management
 
 1. You can also grant schema-level privileges on schemas without special privileges. However, granting privileges on other schemas requires additional privileges like GRANT ANY SCHEMA PRIVILEGE.
 
 2. Oracle Database 23ai provides simple access into schema-level privileges through views like ROLE\_SCHEMA\_PRIVS, USER\_SCHEMA\_PRIVS, and SESSION\_SCHEMA\_PRIVS.
 
 3. In this lab, you've explored the schema-level privilege management in Oracle Database 23ai. By using schema-level privileges, you can drastically reduce the management and administration needed to grant schema privileges prior to 23ai and improve security through their use.
+
+4. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    drop user if exists bob cascade;
+    drop user if exists sally cascade;
+
+    </copy>
+    ```
+    You may now **proceed to the next lab** 
+
 
 ## Learn More
 

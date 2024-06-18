@@ -1,4 +1,4 @@
-# Using "IF EXISTS" and "IF NOT EXISTS" in SQL Lab for Oracle Database 23ai
+# Using "IF EXISTS" and "IF NOT EXISTS" in SQL 
 
 ## Introduction
 
@@ -20,6 +20,14 @@ In this lab, you will learn how to use the "IF EXISTS" and "IF NOT EXISTS" state
 1. From the Autonomous Database home page, **click** Database action and then **click** SQL.
     ![click SQL](images/im1.png " ")
 
+2. Let's reset our environment before we start.
+    
+    ```
+    <copy>
+    DROP TABLE if exists customer CASCADE CONSTRAINTS;
+    </copy>
+    ```
+
 2. Lets create a small customer table with an id, first name and last name. We want to use the IF NOT EXISTS clause to so that the table is only created if it doesn't already exist in the database.
 
     ```
@@ -31,7 +39,7 @@ In this lab, you will learn how to use the "IF EXISTS" and "IF NOT EXISTS" state
     );
     </copy>
     ```
-    ![create table](images/im2.png " ")
+    ![create a table](images/im2.png " ")
 
 3. Lets now drop objects using the IF EXISTS clause. This means that we can drop non-existent and existing objects without receiving an error. Notice, we don't have a customer_view. However, with IF EXISTS statement we wont get an error.
 
@@ -70,6 +78,15 @@ In this lab, you will learn how to use the "IF EXISTS" and "IF NOT EXISTS" state
  
 
 5. You've now completed this lab worked with the IF [NOT] EXISTS clause in Oracle Database 23ai. This new functionality is great for enhancing scripts and minimizing errors in database. Feel try to continue trying out the IF [NOT] EXISTS clause or check out another lab.
+
+6. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    DROP TABLE customer CASCADE CONSTRAINTS;
+    </copy>
+    ```
+You may now **proceed to the next lab** 
 
 ## Learn More
 

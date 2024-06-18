@@ -8,17 +8,17 @@ This section will be updated over time. If you'd like to see a specific feature 
 
 ## About Oracle Database 23ai
 
-Building upon 40+ years of continual improvements, Oracle Database 23ai comes with cutting-edge features to address the evolving needs of modern data management. With a strong emphasis on AI, developer features, availability, performance, scalability, and security, Oracle Database 23ai continues to set the standard for mission-critical workloads across various industries.
+Building upon 40+ years of continual improvements, Oracle Database 23ai comes with cutting-edge features to address the changing needs of modern data management. With a strong emphasis on AI, developer features, availability, performance, scalability, and security, Oracle Database 23ai continues to set the standard for mission-critical workloads across various industries.
 
 ## Performance and Database Lifecycle Management in Oracle Database 23ai
 
-In Oracle Database 23ai, several key features and enhancements have been add to improve performance and streamline database lifecycle management processes. This section explores the following features:
+In Oracle Database 23ai, several key features and enhancements have been added to improve performance and streamline database lifecycle management processes. This section explores the following features:
 
 - **Shrink Tablespace:** Learn about the new `shrink_tablespace` procedure, which offers a simplified approach to reclaiming unused space within tablespaces, thereby optimizing database resource utilization.
 
 - **Error Message Improvements:** Discover ongoing efforts to enhance the clarity and informativeness of error messages from the database, ultimately facilitating quicker troubleshooting and resolution of database issues.
 
-- **SQL Analysis Reporting:** Explore the new SQL Analysis Report feature, designed to provide insights and suggestions for optimizing SQL queries, thereby improving database performance and efficiency.
+- **SQL Analysis Reporting:** Explore the new SQL Analysis Report feature, designed to provide insights and suggestions for optimizing SQL queries, improving database performance and efficiency.
 
 ## Learn More
 
@@ -29,5 +29,5 @@ For further exploration of Oracle Database features and enhancements, visit:
 
 ## Acknowledgements
 * **Author** - Killian Lynch, Database Product Management
-* **Contributors** - Killian Lynch, Database Product Management
-* **Last Updated By/Date** - Killian Lynch, January 2024
+* **Contributors** - Dom Giles, Distinguished Database Product Manager
+* **Last Updated By/Date** - Killian Lynch, April 2024

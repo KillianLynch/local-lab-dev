@@ -1,31 +1,31 @@
-# Annotation Exploration in Oracle Database 23ai
+# Schema Annotation Exploration in Oracle Database 23ai
 
 ## Introduction
 
-Welcome to the "Annotation Exploration in Oracle Database 23ai" lab. Annotations are a powerful tool for documenting and classifying database objects, along with providing insights into their purpose and usage.
+Welcome to the "Schema Annotation Exploration in Oracle Database 23ai" lab. Schema Annotations are a powerful tool for documenting and classifying database objects, along with providing insights into their purpose and usage.
 
-In today's technology-driven world, efficient documentation and organization of database objects are essential for smooth operation of database systems. Annotations, as an extension of traditional comments, offer a more structured and versatile approach to database documentation. They allow us to associate name-value pairs with database objects, allowing us to describe, classify, and categorize them according to our specific requirements.
+In today's technology-driven world, organization and documentation of database objects are essential for smooth operation of database systems. Schema Annotations, as an extension of traditional comments, offer a more structured and versatile approach to database documentation. They allow us to associate name-value pairs with database objects, allowing us to describe, classify, and categorize them according to our specific requirements.
 
 Estimated Lab Time: 10 minutes
 
 ### Objective:
-The objective of this lab is to provide hands-on experience with annotations in Oracle Database 23ai. You will learn how to use annotations to document and classify various database objects, and understand how to query and manipulate annotations using SQL.
+The objective of this lab is to provide hands-on experience with Schema Annotations in Oracle Database 23ai. You will learn how to use Schema Annotations to document and classify various database objects, and understand how to query and manipulate Schema Annotations using SQL.
 
 ### Prerequisites:
 - Access to Oracle Database 23ai.
 - Basic understanding of SQL is helpful.
 
-## Task 1: Adding Annotations
+## Task 1: Adding Schema Annotations 
 
 1. From the Autonomous Database home page, **click** Database action and then **click** SQL.
     ![click SQL](images/im1.png " ")
 
 
-2. Why Use Annotations? Annotations provide a way to add additional property metadata for database objects, such as tables, columns, views, materialized views and even domains. 
+2. Why Use Schema Annotations ? Schema Annotations  provide a way to add additional property metadata for database objects, such as tables, columns, views, materialized views and even domains. 
 
-    Compared to comments, annotations offer more flexibility. They can be used with various types of database elements, not just tables. Also, you can attach multiple annotations to the same object, which isn't possible with comments. Annotations are keys with optional values. You can use them to record any metadata you want about the object in question. This is important because there is no set format for comments. So which do you use, JSON? XML? Delimited key-value pairs? And on top of this, how do you enforce the format for all future maintainers? 
+    Compared to comments, annotations offer more flexibility. They can be used with various types of database elements, not just tables. Also, you can attach multiple annotations to the same object, which isn't possible with comments. Schema Annotations are keys with optional values. You can use them to record any metadata you want about the object in question. This is important because there is no set format for comments. So, which do you use: JSON? XML? Delimited key-value pairs? And on top of this, how do you enforce the format for all future maintainers? 
 
-    Thats where Annotations come in. Lets take a look.
+    Thats where Schema Annotations come in. Lets take a look.
 
     Execute the SQl commands to create a table `books`.The `books` table stores information about books, including the title and author ID.
     
@@ -80,11 +80,20 @@ The objective of this lab is to provide hands-on experience with annotations in 
     ![look at the annotations in the usage view](images/annotations-3.png " ")
 
 
-4. Annotations offer a structured and flexible approach to documenting and classifying various database objects, enhancing the overall organization and maintenance of database systems. By associating name-value pairs with database objects, annotations enable users to describe, categorize, and classify objects according to specific requirements. 
+4. Schema Annotations offer a structured and flexible approach to documenting and classifying various database objects, enhancing the overall organization and maintenance of database systems. By associating name-value pairs with database objects, Schema Annotations enable users to describe, categorize, and classify objects according to specific requirements. 
 
-In conclusion, this lab has provided a quick  into the usage and implementation of annotations in Oracle Database 23ai. If you're interested in trying out more, feel free to test out your own annotations now.  
+    In conclusion, this lab has provided a quick into the usage and implementation of Schema Annotations in Oracle Database 23ai. If you're interested in trying out more, feel free to test out your own Schema Annotations now. 
 
-This concludes the Annotations Lab.
+5. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    DROP TABLE IF EXISTS books;
+    </copy>
+    ```
+
+This concludes the Schema Annotations Lab.
+You may now **proceed to the next lab** 
 
 
 ## Learn More

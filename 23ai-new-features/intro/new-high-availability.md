@@ -32,8 +32,6 @@ Excellent, you say, but what about the Oracle Database 23ai features that impact
 
 The features listed above are just some of the highlighted MAA features that tie in with Gold Tier RTO and RPO levels in Oracle Database 23ai that are certainly worth trying out on your own. Although I chose to highlight the features that I feel align most with the MAA Gold tier, many other Oracle Database 23ai enhancements impact the usability, flexibility, and overall capabilities of the technologies under the MAA umbrella, including Oracle RAC and Active Data Guard as well as other closely related technologies like GoldenGate 23ai. It should be noted that some of the new features above are still undergoing rigorous validation and testing via the MAA team’s Chaos Engineering methodology to determine their fit into the MAA tiers based on the multitude of planned maintenance and outage events and conditions. This type of validation never ends as the team constantly works hard to evolve our MAA architecture as the modern world continues towards technical advancement (AI being the latest).
 
-Please stay tuned for more Oracle Database 23ai MAA guidelines, as I will be diving deeper into some of these 23ai features in the near future. In the meantime, you can check out the resources below for more information on Maximum Availability Architecture and Oracle Database 23ai.
-
 ## Learn More
 
 * [Maximum Availability Architecture](https://blogs.oracle.com/maa/post/exploring-the-maa-gold-maa-tier-with-oracle-db-23ai#)

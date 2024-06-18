@@ -8,6 +8,8 @@ This lab is only intended to give you a small taste of what duality views have t
 
 [23ai JSON Duality View Workshops](https://apexapps.oracle.com/pls/apex/f?p=133:100:110578183178299::::SEARCH:duality%20views)
 
+Estimated Lab Time: 30 minutes
+
 **JSON Duality**
 
 JSON Relational Duality is a landmark capability in Oracle Database 23ai providing game-changing flexibility and simplicity for Oracle Database developers. This breakthrough innovation overcomes the historical challenges developers have faced when building applications, using relational or document models.
@@ -48,8 +50,8 @@ This lab assumes you have:
 2.  Let's create some tables to use in the lab. Copy and run the following SQL script:
     ```
     <copy>
-    DROP TABLE IF EXISTS new_orders;
-    DROP TABLE IF EXISTS new_customers;
+    DROP TABLE new_orders CASCADE CONSTRAINTS;
+    DROP TABLE new_customers CASCADE CONSTRAINTS;
 
     -- Create a table to store order data
     CREATE TABLE new_orders (
@@ -91,7 +93,7 @@ This lab assumes you have:
     
     Using Duality Views, data is still stored in relational tables in a highly efficient normalized format but is accessed by apps in the form of JSON documents. Developers can think in terms of JSON documents for data access while using the highly efficient relational model for data storage, without having to compromise simplicity or efficiency. In addition to this, Duality Views hide all the complexities of database level concurrency control from the user, providing document level serializability. Duality views can be created in either SQL or GraphQL. We will create the view in GraphQL below but you could choose to create in in SQL if you prefer.
     
-    Create a JSON Relational Duality View on top of the new_customers and new_orders tables. Copy the sql below and click **Run Script**
+    Create a JSON Relational Duality View on top of the new\_customers and new\_orders tables. Copy the sql below and click **Run Script**
 
     ```
     <copy>
@@ -118,7 +120,7 @@ This lab assumes you have:
         };
 	</copy>
     ```
-	![Creating the genre view](images/im2.png " ")
+	![Creating the duality view](images/im2.png " ")
 
 2. Let's insert a new customer with an order using a simple relational insert statement:
 
@@ -131,7 +133,7 @@ This lab assumes you have:
     VALUES ((SELECT id FROM new_customers WHERE email = 'alice.brown@example.com'), 101, SYSTIMESTAMP, 300.00);
 	</copy>
     ```
-    ![Creating the movie view](images/im3.png " ")
+    ![inserting into our new_customers table](images/im3.png " ")
 
 3. Now, we can do the opposite. This time insert data using the JSON Relational Duality view and the json_transform operation. Notice we are inserting data through our duality view here. Click **Run Script**
 
@@ -147,7 +149,7 @@ This lab assumes you have:
     ```
     Here we added another order for the customer Alice Brown.
 
-    ![Showing the movie view](images/im4.png " ")
+    ![Updating the our customers view](images/im4.png " ")
 
 4. Query the JSON Relational Duality view from the customer we just added another order to using a simple SQL select statement with dot notation:
 
@@ -156,7 +158,7 @@ This lab assumes you have:
     SELECT json_serialize(data PRETTY) FROM CUSTOMERS_DV c WHERE c.data.Email = 'alice.brown@example.com';
     </copy>
     ```
-    ![adding into genre](images/im5.png " ")
+    ![selecting from our customers table](images/im5.png " ")
 
 
     To reiterate, populating a duality view automatically updates the data shown in related duality views by updating their underlying tables. For example, inserting documents into the `customers_dv` duality view updated the underlying orders table.   
@@ -173,42 +175,42 @@ This lab assumes you have:
 
 2. Click on SQL under the Development section. The first thing we want to do is enable REST on our Duality Views. Use the Oracle Database Actions Navigator on the left side of the screen, click the drop-down arrow for the box showing the Table objects, and select Views. Refer to the picture below.
 
-    ![adding into genre](images/rest1.png " ")
+    ![load rest](images/rest1.png " ")
 
 3. Right click on the CUSTOMERS_DV, hover the mouse over REST and click Enable if it isn't already enabled. See the picture below NOTE: If it is enabled already, it will say Disable… instead. If you see Disable… you don't have to do anything. Skip to number 5.
 
-    ![adding into genre](images/rest2.png " ")
+    ![locating rest](images/rest2.png " ")
 
 4. The REST Enable Object side panel will appear. Select Enable to continue.
 
-    ![adding into genre](images/rest3.png " ")
+    ![pick the rest panel](images/rest3.png " ")
 
     Alternatively we could have done this in PL/SQL
 
 5. Click on Hamburger menu in the upper left-hand corner of the Database Actions page and Click on REST 
 
-    ![adding into genre](images/rest4.png " ")
+    ![sql navigation ](images/rest4.png " ")
 
 
 6. Then click on AutoREST.
 
-    ![adding into genre](images/rest5.png " ")
+    ![pick autorest](images/rest5.png " ")
 
 7. Now click the three dots on the right of the CUSTOMERS_DV and select OpenAPI View.
 
-    ![adding into genre](images/rest6.png " ")
+    ![open autorest](images/rest6.png " ")
 
 8. Here, you can see the automatically configured REST calls that were enabled on the view.
 
     Expand the GET section.
 
-    ![adding into genre](images/rest7.png " ")
+    ![click get](images/rest7.png " ")
 
 9. By default, this section shows sample parameters and responses. However, you can use it to try out the calls themselves.
 
     Click on Try it out.
 
-    ![adding into genre](images/rest8.png " ")
+    ![try get](images/rest8.png " ")
 
 10. In the q field, enter the following query parameters:
 
@@ -220,11 +222,11 @@ This lab assumes you have:
 
 11. Click Execute to run the REST call with the given parameters.
 
-    ![adding into genre](images/rest9.png " ")
+    ![run the query](images/rest9.png " ")
 
 12. In the Responses section, you can now see that OpenAPI has built the call for you. You can see the cURL command and the request URL built from the query parameters you provided. Additionally, you can see the response from the server below, displaying information about the customer "Alice".
 
-    ![adding into genre](images/rest10.png " ")
+    ![view the output](images/rest10.png " ")
 
 
 13. This lab is only intended to give you a small taste of what duality views have to offer. For a full, in-depth free workshops, follow the link below
@@ -233,6 +235,17 @@ This lab assumes you have:
 
     In summary, this lab demonstrated the power of JSON Relational Duality Views, allowing you to work with data in either JSON Document format or SQL Relational format. Changes made through views are reflected in the corresponding documents and tables. This flexibility enables efficient and convenient create, read, update or delete across multiple documents and tables with ease.
 
+5. We can clean up from the lab by dropping our tables. Navigate back to the SQL editor or go back to task one step one if you need a reminder where it is.
+
+    ```
+    <copy>
+    DROP TABLE new_orders CASCADE CONSTRAINTS;
+    DROP TABLE new_customers CASCADE CONSTRAINTS;
+    DROP VIEW customers_dv;
+    </copy>
+    ```
+
+You may now **proceed to the next lab** 
 
 ## Learn More
 

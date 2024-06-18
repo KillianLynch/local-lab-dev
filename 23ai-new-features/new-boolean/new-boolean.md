@@ -1,4 +1,4 @@
-# Boolean Data Type: Exploring Boolean Functionality in Oracle Database 23ai
+# Exploring Boolean Functionality in Oracle Database 23ai
 
 ## Introduction
 
@@ -61,7 +61,7 @@ In this lab, you will explore the boolean data type introduced in Oracle Databas
     SELECT * FROM product WHERE available = FALSE;
     </copy>
     ```
-    ![Create table](images/im4.png " ")
+    ![select from the table](images/im4.png " ")
 
 
 2. You can also update boolean values just like any other data type. Imagine we got a new shipment of smartphones and want to update the availability.
@@ -71,7 +71,7 @@ In this lab, you will explore the boolean data type introduced in Oracle Databas
     UPDATE product SET available = TRUE WHERE product_name = 'Smartphone';
     </copy>
     ```
-    ![Create table](images/im5.png " ")
+    ![update the table](images/im5.png " ")
 
 
 2. Additionally, let's modify with PL/SQL and the boolean data type. Insert a TV into the `product` table with a predefined boolean value of true.
@@ -104,6 +104,16 @@ In this lab, you will explore the boolean data type introduced in Oracle Databas
 4. In this lab, you gained a very small bit of hands-on experience with the boolean data type in Oracle Database 23ai. You learned how to define boolean columns, insert boolean values, perform boolean operations in SQL queries, and utilize boolean types in PL/SQL. Understanding boolean functionality is helpful for effective data manipulation and decision-making in database systems.
 
 Feel free to continue experimenting with boolean values or explore other features of Oracle Database 23ai.
+
+5. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    DROP TABLE product CASCADE CONSTRAINTS;
+    </copy>
+    ```
+
+You may now **proceed to the next lab** 
 
 ## Learn More
 

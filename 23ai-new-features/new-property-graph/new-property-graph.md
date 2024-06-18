@@ -10,7 +10,7 @@ Estimated Lab Time: 20 minutes
 
 The objective of this workshop is to show you SQL property graphs and demo their practical use. By the end of this workshop, you will be able to create property graphs, query them using SQL/PGQ, and visualize the relationships within your data.
 
-This lab is just a short overview of the functionality of Property Graphs in the Oracle Database and is meant to give you a small exapmle of what is possible. For more in depth Property Graphs explinations and workshops check out the following labs
+This lab is just a short overview of the functionality brought forth by Property Graphs in Oracle Database 23ai and is meant to give you a small example of what is possible. For more in depth Property Graphs explanations and workshops check out the following labs
 
 * [Graphs in the Oracle Database](https://apexapps.oracle.com/pls/apex/f?p=133:100:105582422382278::::SEARCH:graph)
 
@@ -25,16 +25,16 @@ This lab is just a short overview of the functionality of Property Graphs in the
 
     ![click SQL](images/im1.png " ")
 
-2. For demo purposes we will be using the ADMIN user so we dont need to grant any additional roles. The database schema that contains the graph tables (either Property Graph schema objects or relational tables that will be directly loaded as a graph in memory) requires certain privileges found [here](https://docs.oracle.com/en/database/oracle/property-graph/24.2/spgdg/graph-developers-guide-property-graph.pdf). Here is an example of granting SQL property graph related privileges
+2. For demo purposes we will be using the ADMIN user so we don't need to grant any additional roles. The database schema that contains the graph tables (either Property Graph schema objects or relational tables that will be directly loaded as a graph in memory) requires certain privileges found [here](https://docs.oracle.com/en/database/oracle/property-graph/24.2/spgdg/graph-developers-guide-property-graph.pdf). Here is an example of granting SQL property graph related privileges
 
     ```
     GRANT CREATE PROPERTY GRAPH, CREATE ANY PROPERTY GRAPH, ALTER ANY PROPERTY GRAPH, DROP ANY PROPERTY GRAPH, READ ANY PROPERTY GRAPH TO <graphuser>;
     ```
 
 
- Always check the Security Best Practices when creating new users.  Best security practices for graph users can be found [here](https://docs.oracle.com/en/database/oracle/property-graph/20.4/spgdg/property-graph-overview-spgdg.html#GUID-98F3A3D7-9B97-40AD-8944-B261D8B60F08).
+    Always check the Security Best Practices when creating new users.  Best security practices for graph users can be found [here](https://docs.oracle.com/en/database/oracle/property-graph/20.4/spgdg/property-graph-overview-spgdg.html#GUID-98F3A3D7-9B97-40AD-8944-B261D8B60F08).
 
-3. Lets create some tables for our demo. We'll create a people and relationship table which will be our vertices(people) and edges(relationship) of the graph. 
+3. Lets create some tables for our demo. We'll create a people and relationship table which will be our vertices (people) and edges(relationship) of the graph. 
 
      ```
     <copy>
@@ -78,25 +78,23 @@ This lab is just a short overview of the functionality of Property Graphs in the
 
 ## Task 2: Creating Property Graphs  
 
-1. Property graphs give you a different way of looking at your data. with Property Graphs you model data with edges and nodes. Edges represent the relationships that exist between our nodes (also called vertices). 
+1. Property graphs give you a different way of looking at your data. With Property Graphs you model data with edges and nodes. Edges represent the relationships that exist between our nodes (also called vertices). 
 
     In Oracle Database 23ai we can create property graphs inside the database. These property graphs allow us to map the vertices and edges to new or existing tables, external tables, materialized views or synonyms to these objects inside the database. 
     
     The property graphs are stored as metadata inside the database meaning they don't store the actual data. Rather, the data is still stored in the underlying objects and we use the SQL/PQG syntax to interact with the property graphs.
 
-    "Why not do this in SQL?" Short answer is, you can. However, it may not be simple. Modeling graph inside the database using SQL can be difficult and cumbersome and could require complex SQL code to accurately represent and query all aspects of a graph.
+    "Why not do this in SQL?" Short answer is, you can. However, it may not be simple. Modeling graphs inside the database using SQL can be difficult and cumbersome and could require complex SQL code to accurately represent and query all aspects of a graph.
 
     This is where property graphs come in. Property graphs make the process of working with interconnected data, like identifying influencers in a social network, predicting trends and customer behavior, discovering relationships based on pattern matching and more by providing a more natural and efficient way to model and query them. Let's take a look at how to create property graphs and query them using the SQL/PGQ extension.
 
-
-
-
-1. We'll first create a property graph that models the relationship between people, our tables created earlier
+2. We'll first create a property graph that models the relationship between people (our tables created earlier).
 
     ```
     <copy>
         
-    drop property graph relationships_pg ;
+    drop property graph relationships_pg;
+
     CREATE PROPERTY GRAPH relationships_pg
         VERTEX TABLES (
             people
@@ -121,7 +119,7 @@ This lab is just a short overview of the functionality of Property Graphs in the
     * Edges represent how they are connected (relationship table)
     * Our edges table has a source key and destination key, representing the connectiontion between the two people
 
-    ![create the data](images/im3.png " ")
+    ![create the property graph](images/im3.png " ")
 
 ## Task 3: Querying Property Graphs with SQL/PGQ
 
@@ -140,7 +138,7 @@ This lab is just a short overview of the functionality of Property Graphs in the
     </copy>
     ```
 
-    ![create the data](images/im4.png " ")
+    ![use sql/pgq to query the graph](images/im4.png " ")
 
 2. We can filter our results like we can in SQL.
 
@@ -157,7 +155,7 @@ This lab is just a short overview of the functionality of Property Graphs in the
     </copy>
     ```
 
-    ![create the data](images/im5.png " ")
+    ![use sql/pgq to select a person from the graph](images/im5.png " ")
 
 3. We can also check the metadata about our graph
     ```
@@ -177,13 +175,24 @@ This lab is just a short overview of the functionality of Property Graphs in the
 
     </copy>
     ```
-    ![create the data](images/im6.png " ")
+    ![check graph metadata using sql/pgq](images/im6.png " ")
 
 
 4. In this short lab we've looked at SQL property graphs and SQL/PGQ in Oracle Database 23ai. We've learned how to create property graphs from existing tables, query these graphs to discover relationships, and prepare data for visualization. 
 
-    This is just a tiny sample of what you can do with Property Graphs and SQL/PQG in Oracle Database 23ai. For more in depth labs and other graph functionality, brows through the following link
-    * [Graph in 23ai](https://apexapps.oracle.com/pls/apex/f?p=133:100:105582422382278::::SEARCH:graph)
+    This is just a small sample of what you can do with Property Graphs and SQL/PQG in Oracle Database 23ai. For more in depth labs and other graph functionality, brows through the following link
+    * [Graphs in 23ai](https://apexapps.oracle.com/pls/apex/f?p=133:100:105582422382278::::SEARCH:graph)
+
+5. We can clean our environment.
+    ```
+    <copy>
+    drop table people cascade CONSTRAINTS;
+    drop table relationship cascade CONSTRAINTS;
+    drop property graph relationships_pg;
+    </copy>
+    ```
+
+You may now **proceed to the next lab** 
     
 ## Learn More
 

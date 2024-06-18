@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Welcome to the "Direct Joins Workshop: Simplifying Data Manipulation in SQL"! In this workshop, you'll learn about the new 23ai feature called direct joins in SQL. Direct joins allow you to easily update and delete data across multiple related tables. They're like shortcuts that make your SQL queries more efficient and straightforward.
+Welcome to Simplifying Data Manipulation in SQL! In this lab, you'll learn about the new 23ai feature called direct joins in SQL. Direct joins allow you to easily update and delete data across multiple related tables. 
 
 Estimated Lab Time: 10 minutes
 
 ### Objective:
-The goal of this workshop is to help you understand and use direct joins effectively in SQL. By the end of this workshop, you'll be able to confidently update and delete data across tables, making your database management tasks much easier.
+The goal of this lab is to help you understand and use direct joins effectively in SQL. By the end of this lab, you'll be able to confidently update and delete data across tables, making your database management tasks much easier.
 
 ### Prerequisites:
 - Access to Oracle Database 23ai.
@@ -76,7 +76,7 @@ The goal of this workshop is to help you understand and use direct joins effecti
     ```
     ![show the thriller movies](images/movies-2.png " ")
 
-4. In older versions of Oracle, you'd have to resort to creating sub-queries to execute the updates. this could make SQL more complex and difficult to maintain.
+4. In older versions of Oracle, you'd have to resort to creating sub-queries to execute the updates. This could make SQL more complex and difficult to maintain.
 
     In Oracle Database 23ai the syntax is much simpler and the join can be performed in the same update statement.
 
@@ -91,7 +91,7 @@ The goal of this workshop is to help you understand and use direct joins effecti
     ```
     ![show the thriller movies](images/movies-3.png " ")
 
-4. Wait, what if we don't like horror movies? Let's say we decide to purge all of our Horror genre.
+5. Wait, what if we don't like horror movies? Let's say we decide to purge all of our Horror genre.
 
     ```
     <copy>
@@ -101,10 +101,10 @@ The goal of this workshop is to help you understand and use direct joins effecti
     WHERE g.genre_name = 'Horror';
     </copy>
     ```
-    ![show the thriller movies](images/movies-4.png " ")
+    ![remove the thrillers](images/movies-4.png " ")
 
 
-5. Again, with Oracle 23ai's direct join capability, removing these movies becomes a lot easier.
+6. Again, with Oracle 23ai's direct join capability, removing these movies becomes a lot easier.
 
     ```
     <copy>
@@ -114,14 +114,23 @@ The goal of this workshop is to help you understand and use direct joins effecti
     AND g.genre_name = 'Horror';
     </copy>
     ```
-    ![show the thriller movies](images/movies-5.png " ")
+    ![delete movies](images/movies-5.png " ")
 
 6. In this Lab, you learned how direct joins simplify data manipulation tasks, especially in updating and deleting data across multiple related tables. By using direct joins, you've learned how to make your SQL queries more efficient, readable, and easier to maintain. Feel free to continue practicing or choose a new lab to try out!
+
+8. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    DROP TABLE if exists GENRES CASCADE CONSTRAINT;
+    DROP TABLE if exists MOVIES CASCADE CONSTRAINT;
+    </copy>
+    ```
+
 
 ## Learn More
 
 * [Direct Joins for UPDATE and DELETE Statements Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/nfcoa/application-development.html#GUID-326C2680-1D34-4615-93DF-917CB394CB73)
-* [Direct Joins for UPDATE and DELETE Statements](https://blogs.oracle.com/database/post/oracle-database-23ai-new-feature-direct-joins-for-update-and-delete-statements)
 
 
 ## Acknowledgements

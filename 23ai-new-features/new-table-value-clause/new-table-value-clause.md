@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Welcome to the "Exploring the Power of Table Value Constructors in SQL" workshop. In this workshop, you will learn about the table value constructor feature in SQL, which allows you to define multiple rows using a single constructor for use in SQL statements. Table value constructors provide a convenient and efficient way to insert, select, and merge multiple rows of data in SQL databases.
+Welcome to the "Exploring the Power of Table Value Constructors in SQL" lab. In this lab, you will learn about the table value constructor feature in SQL, which allows you to define multiple rows using a single constructor for use in SQL statements. Table value constructors provide a convenient and efficient way to insert, select, and merge multiple rows of data in SQL databases.
 
 Estimated Lab Time: 10 minutes
 
 ### Objective:
-The objective of this workshop is to familiarize you with the table value constructor feature in SQL and demonstrate its practical applications for data manipulation tasks. By the end of this workshop, you will be able to use table value constructors to insert, select, update, and merge data in SQL databases effectively.
+The objective of this lab is to familiarize you with the table value constructor feature in SQL and demonstrate its practical applications for data manipulation tasks. By the end of this lab, you will be able to use table value constructors to insert, select, update, and merge data in SQL databases effectively.
 
 ### Prerequisites:
 - Access to Oracle Database 23ai.
@@ -22,8 +22,8 @@ The objective of this workshop is to familiarize you with the table value constr
 
     ```
     <copy>
-    DROP TABLE if exists EMPLOYEES;
-    DROP TABLE if exists PRODUCTS;
+    DROP TABLE if exists EMPLOYEES cascade constraints;
+    DROP TABLE if exists PRODUCTS cascade constraints;
 
     -- Create a table to store employee data
     CREATE TABLE employees (
@@ -43,7 +43,7 @@ The objective of this workshop is to familiarize you with the table value constr
 
     </copy>
     ```
-    ![insert some books](images/table-value-1.png " ")
+    ![create two tables ](images/table-value-1.png " ")
 
 ## Task 2: Understanding Table Value Constructors
 
@@ -56,7 +56,7 @@ The objective of this workshop is to familiarize you with the table value constr
     ```
     Each value\_list represents a set of values for a single row, enclosed within parentheses. Multiple value\_lists can be specified, separated by commas.
 
-2. Lets first take a look at how we insert into tables prior to Tavel Value Constructors
+2. Lets first take a look at how we insert into tables prior to Table Value Constructors
 
     ```
     <copy>
@@ -123,7 +123,7 @@ The objective of this workshop is to familiarize you with the table value constr
 
     </copy>
     ```
-    ![insert more employees](images/table-value-4.png " ")
+    ![make updates to the data](images/table-value-4.png " ")
 
     In this example, we're updating the department to 'IT' for employees whose first name is 'John' or 'Jane'.
 
@@ -140,7 +140,7 @@ The objective of this workshop is to familiarize you with the table value constr
     );
     </copy>
     ```
-    ![insert more employees](images/table-value-5.png " ")
+    ![delete data with the table value clause](images/table-value-5.png " ")
 
     In this example, we're deleting employees whose department is 'HR'.
 
@@ -169,11 +169,23 @@ The objective of this workshop is to familiarize you with the table value constr
         VALUES (source.product_id, source.product_name, source.price, source.category);
     </copy>
     ```
-    ![insert more employees](images/table-value-6.png " ")
+    ![using merge with the table value constructor](images/table-value-6.png " ")
 
     In this example, we're using the MERGE statement with a table value constructor to merge new products into the products table. Existing products are updated if they match on the product ID, and new products are inserted if they don't exist.
 
-2. In this Lab, we've explored practical applications of table value constructors in SQL. We've learned how to efficiently insert, update, and delete multiple rows of data using table value constructors, as well as how to use them in conjunction with the MERGE statement for data merging operations.
+2. In this Lab, we've explored practical applications of table value constructors in SQL. We've learned how to insert, update, and delete multiple rows of data using table value constructors, as well as how to use them in conjunction with the MERGE statement for data merging operations.
+
+3. We can clean up from the lab by dropping our tables.
+
+    ```
+    <copy>
+    DROP TABLE EMPLOYEES cascade constraints;
+    DROP TABLE PRODUCTS cascade constraints;
+    </copy>
+    ```
+
+You may now **proceed to the next lab** 
+
 
 ## Learn More
 

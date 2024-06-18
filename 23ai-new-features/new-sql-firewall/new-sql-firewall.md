@@ -22,7 +22,7 @@ The objective of this workshop is to familiarize you with the SQL Firewall featu
 
 2. For this lab we'll need another user - lets create it now. 
     
-    Notice that I'm giving this user the admin privies on the SQL Firewall role. This is so that we can create an allow lists and enable SQL firewall on the test user without having to switch between users constantly. This is for demo purposes only. This is just an example to teach you some high level aspects of SQL Firewall.
+    Notice that I'm giving this user the admin privies on the SQL Firewall role. This is so that we can create an allow lists and enable SQL firewall on the test user without having to switch between users constantly. **This is for demo purposes only.** This is just an example to teach you some high level aspects of SQL Firewall.
 
     ```
     <copy>
@@ -62,11 +62,11 @@ The objective of this workshop is to familiarize you with the SQL Firewall featu
     ALTER USER TEST QUOTA 100M ON DATA;
     </copy>
     ```
-    ![click SQL](images/im2.png " ")
+    ![create the user](images/im2.png " ")
 
 
 3. Now click the hamburger menu on Database actions and select Database Users.
-    ![click SQL](images/im3.png " ")
+    ![look for database actions](images/im3.png " ")
 
 4. Scroll down to find the test user and launch the Database Actions page by clicking the the **Open URL in a new tab** button as shown below.
 
@@ -221,9 +221,13 @@ The objective of this workshop is to familiarize you with the SQL Firewall featu
 
     This is the password you used to create autonomous database. If you cant remember your password navigate to the Autonomous Database home page, **click** Database action and then **click** SQL.
 
+    ![click SQL](images/im20.png " ")
+
+    If you cant remember your password navigate to the Autonomous Database home page, **click** Database action and then **click** SQL.
+
     ![click SQL](images/im1.png " ")
 
-5. We'll kill any active session created by our TEST user and then drop the user.
+2. We'll kill any active session created by our TEST user and then drop the user.
 
     ```
     <copy>
@@ -236,16 +240,22 @@ The objective of this workshop is to familiarize you with the SQL Firewall featu
     ```
     ![create table](images/im17.png " ")
 
-3. We can do this with the Database Actions user management page. 
+3. Now click the hamburger menu on Database actions and select Database Users.
+    ![look for database actions](images/im3.png " ")
+
+4. We can do this with the Database Actions user management page. 
     
     Click on the hamburger menu in the top left of the screen, scroll down and click the three dots by the `TEST` user and select **delete**. See the picture below.
 
     ![create table](images/im18.png " ")
 
 
-4. Enable both sliders and drop the user.
+5. Enable both sliders and drop the user.
 
     ![create table](images/im19.png " ")
+
+You may now **proceed to the next lab** 
+
 
 ## Learn More
 

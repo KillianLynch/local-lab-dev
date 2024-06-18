@@ -22,7 +22,7 @@ The objective of this workshop is to familiarize you with JSON Schema validation
 
     ```
     <copy>
-    DROP TABLE IF EXISTS vehicles PURGE;
+    DROP TABLE IF EXISTS vehicles cascade constraints;
 
     CREATE TABLE vehicles (
         vehicle_id   NUMBER,
@@ -39,7 +39,7 @@ The objective of this workshop is to familiarize you with JSON Schema validation
     );
     </copy>
     ```
-    ![click SQL](images/im2.png " ")
+    ![use json validate in a document](images/im2.png " ")
 
 3. Insert some valid JSON data into the table making sure it passes the the schema constraints.
 
@@ -52,7 +52,7 @@ The objective of this workshop is to familiarize you with JSON Schema validation
     </copy>
     ```
 
-    ![insert more employees](images/im3.png " ")
+    ![insert more vehicles](images/im3.png " ")
 
 4. Now we can insert JSON data that violates the schema constraints to see the error handling.
 
@@ -65,14 +65,15 @@ The objective of this workshop is to familiarize you with JSON Schema validation
     INSERT INTO vehicles (vehicle_id, vehicle_info) VALUES (4, JSON('{"make":"Tesla","model":"Model S","year":1885}'));
     </copy>
     ```
+    We can see that we get a violation.
 
-    ![insert more employees](images/im4.png " ")
+    ![get an error for the json](images/im4.png " ")
 
 5. We can also enhance JSON Schema with additional constraints. For example we can say no additional properties can be added to the object.
 
     ```
     <copy>
-    DROP TABLE IF EXISTS vehicles PURGE;
+    DROP TABLE IF EXISTS vehicles cascade constraints;
 
     CREATE TABLE vehicles (
         vehicle_id   NUMBER,
@@ -91,7 +92,7 @@ The objective of this workshop is to familiarize you with JSON Schema validation
     </copy>
     ```
 
-    ![insert more employees](images/im5.png " ")
+    ![create a vehicle table](images/im5.png " ")
 
 6. Now let's insert JSON data that's got additional properties to check the new constraint.
 
@@ -102,13 +103,13 @@ The objective of this workshop is to familiarize you with JSON Schema validation
     ```
 
 
-    ![insert more employees](images/im6.png " ")
+    ![inserting into the vehicles](images/im6.png " ")
 
 ## Task 2: Querying JSON Data with Schema Validation
 1. Here lets recreate the table without the VALIDATE keyword and add some new JSON documents.
     ```
     <copy>
-    DROP TABLE IF EXISTS vehicles PURGE;
+    DROP TABLE IF EXISTS vehicles cascade constraints;
 
     CREATE TABLE vehicles (
         vehicle_id   NUMBER,
@@ -126,7 +127,7 @@ The objective of this workshop is to familiarize you with JSON Schema validation
     </copy>
     ```
         
-    ![insert more employees](images/im7.png " ")
+    ![create a vehicles table](images/im7.png " ")
 
 
 2. Query the table using the IS JSON VALIDATE condition to retrieve only the valid JSON documents.
@@ -152,6 +153,14 @@ The objective of this workshop is to familiarize you with JSON Schema validation
 
 
 3. In this workshop, we explored the practical applications of JSON schema constraints in Oracle SQL. We learned how to define JSON schema constraints during table creation, validate JSON data upon insertion, and query JSON data using these constraints. By using JSON schema validation, you can make sure that your JSON data keeps to a predefined format, which can improve data integrity and reliability in your Oracle Database.
+
+4. We can clean our environment
+    ```
+    <copy>
+    DROP TABLE IF EXISTS vehicles cascade constraints;
+    </copy>
+    ```
+    You may now **proceed to the next lab** 
 
 ## Learn More
 
